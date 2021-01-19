@@ -4,13 +4,10 @@ import './create-account.css';
 export default function CreateAccount() {
   return (
       <div className="createaccountscreen">
-        <div className="header">
-        <h1>Secret Santa's Little Helper</h1>
-        </div>
         <form>
+            <h1>Create New Account</h1>
           <fieldset>
-            <legend>Create New Account</legend>
-          <p>Signing up for a new account will allow you to log back in and revisit your Secret Santa group!</p>
+            <p>Signing up for a new account will allow you to log back in and revisit your Secret Santa group!</p>
             <label htmlFor="email" className="email">Email address: </label>
             <input type="text" name="email" id="email"></input><br />
             <label htmlFor="username" className="username">Choose Username: </label>

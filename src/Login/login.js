@@ -4,10 +4,10 @@ import './login.css';
 export default function Login() {
   return (
       <div className="loginscreen">
-        <h1>Secret Santa's Little Helper</h1>
         <form>
           <h2>Login</h2>
           <fieldset>
+            <p>Log back in to make any changes to your group for the holiday season or any gift giving occassion.</p>
             <label htmlFor="username" className="username">Username: </label>
             <input type="text" name="username" id="username"></input><br />
             <label htmlFor="password" className="password">Password: </label>

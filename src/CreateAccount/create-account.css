@@ -9,10 +9,15 @@ fieldset {
   border-color: #000;
 }
 
-legend {
-  font-size: 35px;
-}
-
 p {
   line-height: 20px;
+}
+
+.createaccount {
+  font-size: 20px;
+  padding: 15px;
+}
+
+@media all and (min-width: 600px) {
+  
 }
