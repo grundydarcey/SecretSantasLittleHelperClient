@@ -13,6 +13,7 @@ p {
   margin: 65px;
   text-align: center;
   border-style: solid;
+  border-width: 5px;
 }
 
 .toaccount {
