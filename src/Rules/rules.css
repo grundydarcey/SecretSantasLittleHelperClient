@@ -1,0 +1,27 @@
+.rules {
+  text-align: center;
+}
+
+.explanation {
+  border-style: solid;
+  padding: 30px;
+  margin: 65px;
+}
+
+p {
+  line-height: 55px;
+  font-size: 20px;
+}
+
+.creategroup {
+  padding: 15px;
+  font-size: 20px;
+}
+
+@media all and (min-width: 600px) {
+  .explanation {
+    padding: 70px;
+    margin-right: 200px;
+    margin-left: 200px;
+  }
+}
