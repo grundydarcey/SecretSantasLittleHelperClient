@@ -20,8 +20,8 @@ p {
 
 @media all and (min-width: 600px) {
   .textbox {
-    padding: 70px;
-    margin-right: 200px;
-    margin-left: 200px;
+    padding: 35px;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 }

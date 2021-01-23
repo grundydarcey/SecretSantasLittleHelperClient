@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import LandingPage from './LandingPage/landing-page';
 import { Route } from 'react-router-dom';
 import Login from './Login/login';
@@ -11,8 +11,30 @@ import NewMember from './NewMember/newmember';
 import EditMember from './EditMember/editmember';
 import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './FinalDraw/finaldraw';
+import config from './config';
 
-function App() {
+class App extends Component {
+  state = {
+    members: []
+  };
+
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/members`),
+    ])
+    .then(([membersRes]) => {
+      if (!membersRes.ok) return membersRes.json().then((e) => Promise.reject(e));
+      return Promise.all([membersRes.json()]);
+    })
+    .then(([members]) => {
+      this.setState({ members });
+    })
+    .catch((error) => {
+      console.error({ error });
+    });
+  }
+
+  render() {
   return (
     <main className='App'>
       <Header />
@@ -28,6 +50,7 @@ function App() {
       <Route path='/finaldraw' component={FinalDraw} />
     </main>
   );
+  }
 }
 
 export default App;
