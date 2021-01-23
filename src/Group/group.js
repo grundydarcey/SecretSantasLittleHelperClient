@@ -1,6 +1,6 @@
 import React from 'react';
 import './group.css';
-import Store from '../store.js';
+
 
 export default function Group() {
   return (
