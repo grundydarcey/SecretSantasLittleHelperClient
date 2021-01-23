@@ -15,12 +15,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "reactscripts eject",
-    "predeploy": "npm run build",
-    "deploy": "vercel --prod"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
