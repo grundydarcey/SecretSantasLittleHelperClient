@@ -1,9 +1,18 @@
 import React from 'react';
 import './group.css';
+import ApiContext from '../ApiContext';
 
+export default class Group extends React.Component {
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
 
-export default function Group() {
-  return (
+  static contextType = ApiContext;
+
+  render() {
+    return (
     <div className="groupmembers">
       <h1>Customize Your Group</h1>
       <div className="groupbody">
@@ -22,4 +31,5 @@ export default function Group() {
       </div>
     </div>
   )
+}
 }

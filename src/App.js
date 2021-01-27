@@ -42,7 +42,7 @@ class App extends Component {
       <Route path='/login' component={Login} />
       <Route path='/createaccount' component={CreateAccount} />
       <Route path='/rules' component={Rules} />
-      <Route path='/group' component={Group} />
+      <Route path='/members' component={Group} />
       <Route path='/newmember' component={NewMember} />
       <Route path='/drawscreen' component={DrawScreen} />
       <Route path='/editmember' component={EditMember} />
