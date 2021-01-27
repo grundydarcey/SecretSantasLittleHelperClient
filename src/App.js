@@ -15,9 +15,17 @@ import config from './config';
 import ApiContext from './ApiContext';
 
 class App extends Component {
-  state = {
-    members: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      members: []
+    };
+  }
+  //state = {
+    //members: []
+  //};
+
+  
 
   componentDidMount() {
     Promise.all([
@@ -72,7 +80,7 @@ class App extends Component {
     return (
       <ApiContext.Provider value={value}>
         <div className="App">
-          <nav className="App_header">{this.renderPageRoutes()}</nav>
+          <main className="App_header">{this.renderPageRoutes()}</main>
         </div>
       </ApiContext.Provider>
     );

@@ -5,12 +5,21 @@ import config from '../config';
 import { Link } from 'react-router-dom';
 
 export default class Individual extends React.Component {
-  static defaultProps = {
-    match: {
-      params: {}
-    },
-    onDeleteMember: () => { },
-  }
+  //static defaultProps = {
+    //match: {
+      //params: {}
+    //},
+    //onDeleteMember: () => { },
+  //}
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.id,
+      member_name: '',
+      dollars: Number()
+    }
+   }
 
   static contextType = ApiContext;
   
@@ -35,6 +44,9 @@ export default class Individual extends React.Component {
 
   render() {
     const { member_name, id, dollars } = this.props;
+    console.log(member_name)
+    console.log(id)
+    console.log(dollars)
     return (
       <div className='member'>
         <h2 className='member__name'>
@@ -49,8 +61,7 @@ export default class Individual extends React.Component {
         >
         Delete!    
         </button>
-      </div>
-      
+      </div>     
     )
   }
 }
