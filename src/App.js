@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import LandingPage from './LandingPage/landing-page';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Login from './Login/login';
 import CreateAccount from './CreateAccount/create-account';
 import Header from './Header/header';
 import Rules from './Rules/rules';
 import DrawScreen from './DrawScreen/drawscreen';
 import Group from './Group/group';
+import Individual from './Individual/Individual';
 import NewMember from './NewMember/newmember';
 import EditMember from './EditMember/editmember';
 import YourDraw from './YourDraw/yourdraw';
@@ -24,8 +25,6 @@ class App extends Component {
   //state = {
     //members: []
   //};
-
-  
 
   componentDidMount() {
     Promise.all([
@@ -63,6 +62,7 @@ class App extends Component {
         <Route path='/createaccount' component={CreateAccount} />
         <Route path='/rules' component={Rules} />
         <Route path='/members' component={Group} />
+        <Route path='/individual' component={Individual} />
         <Route path='/newmember' component={NewMember} />
         <Route path='/drawscreen' component={DrawScreen} />
         <Route path='/editmember' component={EditMember} />
@@ -77,10 +77,13 @@ class App extends Component {
       members: this.state.members,
       deleteMember: this.handleDeleteMember
     }
+    const members = this.state;
     return (
       <ApiContext.Provider value={value}>
         <div className="App">
           <main className="App_header">{this.renderPageRoutes()}</main>
+  
+          <Group membersData = {members} />
         </div>
       </ApiContext.Provider>
     );

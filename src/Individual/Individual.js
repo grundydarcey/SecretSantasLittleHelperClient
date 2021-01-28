@@ -3,11 +3,12 @@ import ApiContext from '../ApiContext';
 import './Individual.css';
 import config from '../config';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class Individual extends React.Component {
   //static defaultProps = {
     //match: {
-      //params: {}
+    //params: {}
     //},
     //onDeleteMember: () => { },
   //}
@@ -15,11 +16,9 @@ export default class Individual extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.id,
-      member_name: '',
-      dollars: Number()
+      members: this.props.membersData
     }
-   }
+  }
 
   static contextType = ApiContext;
   
@@ -28,6 +27,9 @@ export default class Individual extends React.Component {
     const memberId = this.props.id;
     fetch(`${config.API_ENDPOINT}/members/${memberId}`, {
       method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
     })
       .then(res => {
         if (!res.ok)
@@ -35,7 +37,7 @@ export default class Individual extends React.Component {
       })
       .then(() => {
         this.context.deleteMember(memberId)
-        this.props.onDeleteNote(memberId)
+        this.props.onDeleteMember(memberId)
       })
       .catch(error => {
         console.error({ error })
@@ -43,10 +45,12 @@ export default class Individual extends React.Component {
   }
 
   render() {
+      //const members = this.state;
     const { member_name, id, dollars } = this.props;
-    console.log(member_name)
-    console.log(id)
-    console.log(dollars)
+    //console.log(this.props)
+    //console.log(member_name)
+    //console.log(id)
+    //console.log(dollars)
     return (
       <div className='member'>
         <h2 className='member__name'>
@@ -64,4 +68,12 @@ export default class Individual extends React.Component {
       </div>     
     )
   }
+}
+
+
+Individual.propTypes = {
+  onDeleteMember: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  member_name: PropTypes.string.isRequired,
+  dollars: PropTypes.string.isRequired
 }
