@@ -15,40 +15,17 @@ export default class Individual extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      members: this.props.membersData
-    }
   }
 
   static contextType = ApiContext;
   
-  handleClickDelete = e => {
-    e.preventDefault()
-    const memberId = this.props.id;
-    fetch(`${config.API_ENDPOINT}/members/${memberId}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json'
-      },
-    })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-      })
-      .then(() => {
-        this.context.deleteMember(memberId)
-        this.props.onDeleteMember(memberId)
-      })
-      .catch(error => {
-        console.error({ error })
-      })
-  }
+
 
   render() {
       //const members = this.state;
-    const { member_name, id, dollars } = this.props;
+    const { member_name, id, dollars } = this.props.members;
     //console.log(this.props)
-    //console.log(member_name)
+    console.log(member_name)
     //console.log(id)
     //console.log(dollars)
     return (

@@ -15,20 +15,18 @@ import FinalDraw from './FinalDraw/finaldraw';
 import config from './config';
 import ApiContext from './ApiContext';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      members: []
-    };
+      members: [],
+      isLoading: true,
+    }
   }
-  //state = {
-    //members: []
-  //};
-
+  
   componentDidMount() {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/members`, {
+       fetch(`${config.API_ENDPOINT}/members`, {
         method: 'GET',
         headers: {
           'content-type': 'application/json'
@@ -40,11 +38,11 @@ class App extends Component {
         return Promise.all([membersRes.json()]);
       })
      .then(([members]) => {
-        this.setState({ members });
+        this.setState({ members, isLoading: false });
       })
       .catch((error) => {
         console.error({ error });
-      })
+      }) 
   }
 
   handleDeleteMember = memberId => {
@@ -52,42 +50,45 @@ class App extends Component {
       members: this.state.members.filter(member => member.id !== memberId),
     })
   }
-  
+
   renderPageRoutes() {
     return (
       <main className='App'>
         <Header />
         <Route exact path='/' component={LandingPage} />
-        <Route path='/login' component={Login} />
-        <Route path='/createaccount' component={CreateAccount} />
-        <Route path='/rules' component={Rules} />
-        <Route path='/members' component={Group} />
-        <Route path='/individual' component={Individual} />
-        <Route path='/newmember' component={NewMember} />
-        <Route path='/drawscreen' component={DrawScreen} />
-        <Route path='/editmember' component={EditMember} />
-        <Route path='/yourdraw' component={YourDraw} />
-        <Route path='/finaldraw' component={FinalDraw} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/createaccount' component={CreateAccount} />
+        <Route exact path='/rules' component={Rules} />
+        <Route exact path='/members' component={Group} members={this.state.members} isLoading={this.state.isLoading} />
+        <Route exact path='/individual' component={Individual} />
+        <Route exact path='/newmember' component={NewMember} />
+        <Route exact path='/drawscreen' component={DrawScreen} />
+        <Route exact path='/editmember' component={EditMember} />
+        <Route exact path='/yourdraw' component={YourDraw} />
+        <Route exact path='/finaldraw' component={FinalDraw} />
       </main>
     )
   }
 
   render() {
+    if (this.state.isLoading === true) {
+      console.log('this loasing check happens after construction');
+      return <div>Loading...</div>
+    }
+    console.log(this.state)
     const value = {
       members: this.state.members,
       deleteMember: this.handleDeleteMember
     }
-    const members = this.state;
-    return (
+
+    return (   
       <ApiContext.Provider value={value}>
         <div className="App">
           <main className="App_header">{this.renderPageRoutes()}</main>
-  
-          <Group membersData = {members} />
+          <Route exact path='/members' component={Group} members={this.state.members} isLoading={this.state.isLoading} />
+          <p>name is {this.state.members[2].member_name}</p>
         </div>
-      </ApiContext.Provider>
+        </ApiContext.Provider> 
     );
   }
 }
-
-export default App;

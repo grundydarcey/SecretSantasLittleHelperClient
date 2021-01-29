@@ -1,7 +1,18 @@
 import React from 'react';
 import './rules.css';
 
-export default function Rules() {
+export default class Rules extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rulesExplained: true
+    }
+  }
+
+  
+  render() {
+
+
   return (
       <div className="rules">
         <h1>Let's Play!</h1>
@@ -13,4 +24,5 @@ export default function Rules() {
         </div>
       </div>
   )
+}
 }
