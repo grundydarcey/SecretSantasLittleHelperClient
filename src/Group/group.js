@@ -10,7 +10,7 @@ export default class Group extends React.Component {
       members: [],
       isLoading: false
     }
- }  
+  }
   
   static defaultProps = {
     match: {
@@ -20,31 +20,34 @@ export default class Group extends React.Component {
 
   static contextType = ApiContext;
 
+  stateChange () {
+    this.setState({ state: this.state });
+  }
+
+
   render() {
-    const members = this.props.members;
-    console.log(this.props, 'this.props')
+    const Groupmembers = this.props.members;
+    console.log(this.props.members, 'this.props.members')
+    console.log(Groupmembers, 'groupmembers')
     return (
     <div className="groupmembers">
       <h1>Customize Your Group</h1>
       <div className="groupbody">
         <p>Feel free to use the edit, delete and create buttons to fine-tune your Secret Santa group below.</p><br />
-        
         <ul className="members">
-        {members.map(members =>
-            <li key={members.id}>
-              <Individual
-                id={members.id}
-                member_name={members.member_name}
-                dollars={members.dollars}
-              />
-            </li>
+        {Groupmembers.map(member =>
+            <li key={member.id}>
+              
+              Name: {member.member_name}
+              Dollars:
+
+              </li>
           )}
           <li className="newmember">
             <h2>Create New Member</h2>
             <button type="button" className="newbutton">Add New Member Details</button>
           </li>
           </ul>
-         
         <button className="begindrawing" type="button">Begin Drawing</button>
       </div>
     </div>

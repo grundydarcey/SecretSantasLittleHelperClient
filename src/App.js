@@ -45,6 +45,8 @@ export default class App extends Component {
       }) 
   }
 
+ 
+
   handleDeleteMember = memberId => {
     this.setState({
       members: this.state.members.filter(member => member.id !== memberId),
@@ -72,21 +74,23 @@ export default class App extends Component {
 
   render() {
     if (this.state.isLoading === true) {
-      console.log('this loasing check happens after construction');
       return <div>Loading...</div>
     }
-    console.log(this.state)
+    console.log(this.state, 'this.state')
+    console.log(this.state.members, 'this.state.members')
     const value = {
       members: this.state.members,
       deleteMember: this.handleDeleteMember
     }
-
+    console.log(this.context, 'this.context')
     return (   
       <ApiContext.Provider value={value}>
         <div className="App">
           <main className="App_header">{this.renderPageRoutes()}</main>
-          <Route exact path='/members' component={Group} members={this.state.members} isLoading={this.state.isLoading} />
+          <Route exact path='/members' render={(props) => ( <Group {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
+          <Route exact path='/individual' render={(props) => ( <Individual {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
           <p>name is {this.state.members[2].member_name}</p>
+          
         </div>
         </ApiContext.Provider> 
     );

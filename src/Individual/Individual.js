@@ -1,56 +1,58 @@
 import React from 'react';
 import ApiContext from '../ApiContext';
 import './Individual.css';
-import config from '../config';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import config from '../config';
 
 export default class Individual extends React.Component {
-  //static defaultProps = {
-    //match: {
-    //params: {}
-    //},
-    //onDeleteMember: () => { },
-  //}
-
-  constructor(props) {
-    super(props);
-  }
-
+ static defaultProps = {
+   match: {
+     params: {}
+   },
+   onDeleteMember: () => { },
+ }
   static contextType = ApiContext;
-  
 
+  handleClickDelete = e => {
+    e.preventDefault()
+    const memberId = this.props.id;
+    fetch(`${config.API.ENDPOINT}/members/${memberId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+      })
+      .then(() => {
+        this.props.onDeleteMember(memberId)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }
 
   render() {
       //const members = this.state;
-    const { member_name, id, dollars } = this.props.members;
-    //console.log(this.props)
-    console.log(member_name)
-    //console.log(id)
-    //console.log(dollars)
+    const { member_name, id, dollars } = this.props;
+    console.log(member_name, 'membername')
+    console.log(id, 'id')
+    console.log(dollars, 'dollars')
+    console.log(this.props, 'this.props')
+    console.log(this.props.members, 'this.props.members')
+    console.log(this.state, 'this.state')
+    console.log(this.props.match, 'this.props.match')
+
+    console.log(this.props.match.params, 'this.props.match.params')
     return (
+     
       <div className='member'>
-        <h2 className='member__name'>
-          <Link to={`/members/${id}`}>
-            {member_name}
-          </Link>
-        </h2>
-        <button
-          className="member__delete"
-          type="button"
-          onClick={this.handleClickDelete}
-        >
-        Delete!    
-        </button>
-      </div>     
+        Here are the members:
+        <h2>{this.props.members.member_name}</h2>
+      </div>
+        
     )
   }
-}
-
-
-Individual.propTypes = {
-  onDeleteMember: PropTypes.func,
-  id: PropTypes.string.isRequired,
-  member_name: PropTypes.string.isRequired,
-  dollars: PropTypes.string.isRequired
 }
