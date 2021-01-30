@@ -26,9 +26,7 @@ export default class Group extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('Called after render state')
-    console.log(prevProps)
-    if(prevProps !== this.props) {
+    if(prevProps.members !== this.props.members) {
       this.updateAndNotify();
     }
   }
