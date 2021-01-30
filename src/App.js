@@ -14,7 +14,7 @@ import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './FinalDraw/finaldraw';
 import config from './config';
 import ApiContext from './ApiContext';
-
+import singlemember from './SingleMember/singlemember';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +25,8 @@ export default class App extends Component {
   }
   
   componentDidMount() {
+    
+
     Promise.all([
        fetch(`${config.API_ENDPOINT}/members`, {
         method: 'GET',
@@ -61,6 +63,7 @@ export default class App extends Component {
         <Route exact path='/login' component={Login} />
         <Route exact path='/createaccount' component={CreateAccount} />
         <Route exact path='/rules' component={Rules} />
+        
         <Route exact path='/members' component={Group} members={this.state.members} isLoading={this.state.isLoading} />
         <Route exact path='/individual' component={Individual} />
         <Route exact path='/newmember' component={NewMember} />
@@ -89,6 +92,7 @@ export default class App extends Component {
           <main className="App_header">{this.renderPageRoutes()}</main>
           <Route exact path='/members' render={(props) => ( <Group {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
           <Route exact path='/individual' render={(props) => ( <Individual {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
+          <Route path='/members/:memberId' component={singlemember} />
           <p>name is {this.state.members[2].member_name}</p>
           
         </div>

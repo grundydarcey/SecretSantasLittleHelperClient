@@ -1,10 +1,12 @@
 import React from 'react';
 import './editmember.css';
 
-export default function EditMember() {
-  return (
+export default class EditMember extends React.Component {
+  render() {
+    return (
     <div className='editmember'>
       <h1>Edit Member</h1>
+      <p>{this.props.match.params.id}</p>
       <div className='editbody'>
         <form>
           <fieldset>
@@ -19,4 +21,5 @@ export default function EditMember() {
       </div>
     </div>
   )
+}
 }
