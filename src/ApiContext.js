@@ -1,7 +1,9 @@
 import React from 'react';
+import config from './config';
 
-export default React.createContext({
+const ApiContext = React.createContext({
   members: [],
   addMember: () => {},
   deleteMember: () => {},
 })
+

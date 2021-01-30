@@ -1,8 +1,13 @@
 import React from 'react';
+import { ApiContext, ApiFetchContext } from '../ApiContext';
 import './login.css';
+//import { DataFetching, memberContext } from '../DataFetching';
+//import { ApiFetchContext, ApiContext } from '../ApiContext';
 
-export default function Login() {
-  return (
+export default class Login extends React.Component {
+  //static contextType = memberContext;
+  render() {
+    return (
       <div className="loginscreen">
         <form>
           <h2>Login</h2>
@@ -18,5 +23,7 @@ export default function Login() {
           </fieldset>
         </form>
       </div>
-  )
+    
+    )
+  }
 }

@@ -13,8 +13,9 @@ import EditMember from './EditMember/editmember';
 import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './FinalDraw/finaldraw';
 import config from './config';
-import ApiContext from './ApiContext';
+import { ApiContext, ApiFetchContext } from './ApiContext';
 import singlemember from './SingleMember/singlemember';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -23,11 +24,11 @@ export default class App extends Component {
       isLoading: true,
     }
   }
+
+  //static contextType = ApiContext
   
   componentDidMount() {
-    
-
-    Promise.all([
+    /*Promise.all([
        fetch(`${config.API_ENDPOINT}/members`, {
         method: 'GET',
         headers: {
@@ -44,7 +45,24 @@ export default class App extends Component {
       })
       .catch((error) => {
         console.error({ error });
-      }) 
+      })*/
+      const fetchData = async () => {
+        const response = await fetch(
+          `${config.API_ENDPOINT}/members`
+        );
+        const members = await response.json();
+        this.setState({ members, isLoading: false })
+      };
+
+      fetchData();
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('Called after render state')
+    console.log(prevProps)
+    if(prevProps.members !== this.props.members) {
+      this.updateAndNotify();
+    }
   }
 
  
@@ -87,7 +105,7 @@ export default class App extends Component {
     }
     console.log(this.context, 'this.context')
     return (   
-      <ApiContext.Provider value={value}>
+  
         <div className="App">
           <main className="App_header">{this.renderPageRoutes()}</main>
           <Route exact path='/members' render={(props) => ( <Group {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
@@ -96,7 +114,7 @@ export default class App extends Component {
           <p>name is {this.state.members[2].member_name}</p>
           
         </div>
-        </ApiContext.Provider> 
+      
     );
   }
 }

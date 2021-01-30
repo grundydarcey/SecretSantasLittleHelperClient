@@ -1,5 +1,5 @@
 import React from 'react';
-import ApiContext from '../ApiContext';
+import { ApiContext, ApiFetchContext } from '../ApiContext';
 import './Individual.css';
 import { Link } from 'react-router-dom';
 import config from '../config';
@@ -11,7 +11,7 @@ export default class Individual extends React.Component {
    },
    onDeleteMember: () => { },
  }
-  static contextType = ApiContext;
+  //static contextType = ApiContext;
 
   handleClickDelete = e => {
     e.preventDefault()

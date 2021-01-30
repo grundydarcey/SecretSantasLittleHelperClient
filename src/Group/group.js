@@ -1,8 +1,8 @@
 import React from 'react';
 import './group.css';
-import ApiContext from '../ApiContext';
-import { getMembers } from '../member-helper';
-import Individual from '../Individual/Individual';
+//import { ApiContext, ApiFetchContext } from '../ApiContext';
+//import { getMembers } from '../member-helper';
+//import Individual from '../Individual/Individual';
 
 export default class Group extends React.Component {  
   constructor(props) {
@@ -19,10 +19,18 @@ export default class Group extends React.Component {
     }
   }
 
-  static contextType = ApiContext;
+ // static contextType = ApiContext;
 
   componentDidMount() {
     this.setState({ members: this.props.members })
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('Called after render state')
+    console.log(prevProps)
+    if(prevProps !== this.props) {
+      this.updateAndNotify();
+    }
   }
 
   render() {
