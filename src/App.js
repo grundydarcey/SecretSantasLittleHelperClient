@@ -14,6 +14,7 @@ import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './FinalDraw/finaldraw';
 import config from './config';
 import ApiContext  from './ApiContext';
+import Member from './Member';
 
 export default class App extends Component {
   constructor(props) {
@@ -46,6 +47,12 @@ export default class App extends Component {
       }) 
     }
 
+  handleDeleteMember = memberId => {
+    this.setState({
+      members: this.state.members.filter(member => member.id !== memberId),
+    })
+  }
+
   render() {
     const value = {
       members: this.state.members
@@ -65,6 +72,7 @@ export default class App extends Component {
           <Route exact path='/editmember' component={EditMember} />
           <Route exact path='/yourdraw' component={YourDraw} />
           <Route exact path='/finaldraw' component={FinalDraw} />
+          <Route path="/:member.id" component={Member} />
         </div>
         </ApiContext.Provider>
     );

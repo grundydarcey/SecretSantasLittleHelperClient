@@ -3,7 +3,7 @@ import React from 'react';
  const ApiContext = React.createContext({
   members: [],
   //addMember: () => {},
-  //deleteMember: () => {},
+  deleteMember: () => {},
 })
 
 export default ApiContext;

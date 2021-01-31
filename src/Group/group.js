@@ -1,6 +1,7 @@
 import React from 'react';
 import './group.css';
 import ApiContext from '../ApiContext';
+import { Link } from 'react-router-dom';
 
 export default class Group extends React.Component {  
   static contextType = ApiContext;
@@ -9,11 +10,11 @@ export default class Group extends React.Component {
     this.setState({ members: this.props.members })
   }
 
-  componentDidUpdate(prevProps) {
+  /*componentDidUpdate(prevProps) {
     if(prevProps.members !== this.props.members) {
       this.updateAndNotify();
     }
-  }
+  }*/
 
   render() {
     console.log(this.context, 'this.context')
@@ -30,7 +31,7 @@ export default class Group extends React.Component {
             <li key={member.id}>
               Name: {member.member_name}<br />
               Dollars: {member.dollars}<br />
-              <button className="editmember">Edit</button>
+              
               <button className="deletemember">Delete</button>
             </li>
             )}
