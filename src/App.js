@@ -58,8 +58,6 @@ export default class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('Called after render state')
-    console.log(prevProps)
     if(prevProps.members !== this.props.members) {
       this.updateAndNotify();
     }

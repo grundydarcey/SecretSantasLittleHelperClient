@@ -2,7 +2,9 @@ import React, { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 import config from './config';
 
-const memberContext = createContext();
+export const memberContext = createContext({
+  myMembers: {}
+});
 
 function DataFetching ()  {
     const [members, setMembers] = useState([])
