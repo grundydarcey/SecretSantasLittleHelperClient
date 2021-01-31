@@ -1,12 +1,13 @@
 import React from 'react';
-import { ApiContext, ApiFetchContext } from '../ApiContext';
+import ApiContext from '../ApiContext';
 import './login.css';
 //import { DataFetching, memberContext } from '../DataFetching';
 //import { ApiFetchContext, ApiContext } from '../ApiContext';
 
 export default class Login extends React.Component {
-  //static contextType = memberContext;
+  static contextType = ApiContext;
   render() {
+    console.log(this.context)
     return (
       <div className="loginscreen">
         <form>
@@ -22,6 +23,7 @@ export default class Login extends React.Component {
             <button type="button" className="createnew">Create New Account</button>
           </fieldset>
         </form>
+        <p>Name is</p>
       </div>
     
     )

@@ -1,7 +1,4 @@
 import React from 'react';
-import { ApiContext, ApiFetchContext } from '../ApiContext';
-import './Individual.css';
-import { Link } from 'react-router-dom';
 import config from '../config';
 
 export default class Individual extends React.Component {

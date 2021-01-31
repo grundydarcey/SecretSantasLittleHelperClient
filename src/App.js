@@ -13,22 +13,20 @@ import EditMember from './EditMember/editmember';
 import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './FinalDraw/finaldraw';
 import config from './config';
-import { ApiContext, ApiFetchContext } from './ApiContext';
-import singlemember from './SingleMember/singlemember';
+import ApiContext  from './ApiContext';
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      members: [],
-      isLoading: true,
-    }
+    members: []
   }
+}
 
-  //static contextType = ApiContext
-  
-  componentDidMount() {
-    /*Promise.all([
+  static contextType = ApiContext;
+    
+  componentDidMount = () => {
+    Promise.all([
        fetch(`${config.API_ENDPOINT}/members`, {
         method: 'GET',
         headers: {
@@ -41,78 +39,34 @@ export default class App extends Component {
         return Promise.all([membersRes.json()]);
       })
      .then(([members]) => {
-        this.setState({ members, isLoading: false });
+        this.setState({ members });
       })
       .catch((error) => {
         console.error({ error });
-      })*/
-      const fetchData = async () => {
-        const response = await fetch(
-          `${config.API_ENDPOINT}/members`
-        );
-        const members = await response.json();
-        this.setState({ members, isLoading: false })
-      };
-
-      fetchData();
-  }
-
-  componentDidUpdate(prevProps) {
-    if(prevProps.members !== this.props.members) {
-      this.updateAndNotify();
+      }) 
     }
-  }
-
- 
-
-  handleDeleteMember = memberId => {
-    this.setState({
-      members: this.state.members.filter(member => member.id !== memberId),
-    })
-  }
-
-  renderPageRoutes() {
-    return (
-      <main className='App'>
-        <Header />
-        <Route exact path='/' component={LandingPage} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/createaccount' component={CreateAccount} />
-        <Route exact path='/rules' component={Rules} />
-        
-        <Route exact path='/members' component={Group} members={this.state.members} isLoading={this.state.isLoading} />
-        <Route exact path='/individual' component={Individual} />
-        <Route exact path='/newmember' component={NewMember} />
-        <Route exact path='/drawscreen' component={DrawScreen} />
-        <Route exact path='/editmember' component={EditMember} />
-        <Route exact path='/yourdraw' component={YourDraw} />
-        <Route exact path='/finaldraw' component={FinalDraw} />
-      </main>
-    )
-  }
 
   render() {
-    if (this.state.isLoading === true) {
-      return <div>Loading...</div>
-    }
-    console.log(this.state, 'this.state')
-    console.log(this.state.members, 'this.state.members')
     const value = {
-      members: this.state.members,
-      deleteMember: this.handleDeleteMember
+      members: this.state.members
     }
-    console.log(this.context, 'this.context')
-    return (   
-  
+    return ( 
+      <ApiContext.Provider value={value}>  
         <div className="App">
-          <main className="App_header">{this.renderPageRoutes()}</main>
-          <Route exact path='/members' render={(props) => ( <Group {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
-          <Route exact path='/individual' render={(props) => ( <Individual {...props} members={this.state.members} isLoading={this.state.isLoading} /> )} />
-          <Route path='/members/:memberId' component={singlemember} />
-          <p>name is {this.state.members[2].member_name}</p>
-          
+          <Header />
+          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/createaccount' component={CreateAccount} />
+          <Route exact path='/rules' component={Rules} />
+          <Route exact path='/members' component={Group} />
+          <Route exact path='/individual' component={Individual} />
+          <Route exact path='/newmember' component={NewMember} />
+          <Route exact path='/drawscreen' component={DrawScreen} />
+          <Route exact path='/editmember' component={EditMember} />
+          <Route exact path='/yourdraw' component={YourDraw} />
+          <Route exact path='/finaldraw' component={FinalDraw} />
         </div>
-      
+        </ApiContext.Provider>
     );
   }
 }
