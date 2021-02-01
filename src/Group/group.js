@@ -1,7 +1,8 @@
 import React from 'react';
 import './group.css';
 import ApiContext from '../ApiContext';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import Member from '../Member';
 
 export default class Group extends React.Component {  
   static contextType = ApiContext;
@@ -22,6 +23,7 @@ export default class Group extends React.Component {
     const Groupmembers = this.context.members;
     console.log(Groupmembers, 'groupmembers new with context')
       return (
+        
       <div className="groupmembers">      
         <h1>Customize Your Group</h1>
         <div className="groupbody">
@@ -31,7 +33,9 @@ export default class Group extends React.Component {
             <li key={member.id}>
               Name: {member.member_name}<br />
               Dollars: {member.dollars}<br />
-              
+              <Link to={'/members/' + member.id}>
+                Edit Member
+              </Link>
               <button className="deletemember">Delete</button>
             </li>
             )}
@@ -41,6 +45,7 @@ export default class Group extends React.Component {
             </li>
             </ul>
           <button className="begindrawing" type="button">Begin Drawing</button>
+        
         </div>
       </div>
     )

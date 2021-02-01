@@ -3,18 +3,8 @@ import './rules.css';
 import { Link } from 'react-router-dom';
 
 export default class Rules extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rulesExplained: true
-    }
-  }
-
-
   render() {
-
-
-  return (
+    return (
       <div className="rules">
         <h1>Let's Play!</h1>
         <div className="explanation">
@@ -24,6 +14,6 @@ export default class Rules extends React.Component {
           <Link to='/members'>Create Your Secret Santa Group</Link>
         </div>
       </div>
-  )
-}
+    )
+  }
 }

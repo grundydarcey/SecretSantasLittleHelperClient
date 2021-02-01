@@ -65,14 +65,15 @@ export default class App extends Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/createaccount' component={CreateAccount} />
           <Route exact path='/rules' component={Rules} />
-          <Route exact path='/members' component={Group} />
+          <Route exact path='/members/' component={Group} />
           <Route exact path='/individual' component={Individual} />
           <Route exact path='/newmember' component={NewMember} />
           <Route exact path='/drawscreen' component={DrawScreen} />
           <Route exact path='/editmember' component={EditMember} />
           <Route exact path='/yourdraw' component={YourDraw} />
+          <Route path='/members/:member_id' component={Member} />
           <Route exact path='/finaldraw' component={FinalDraw} />
-          <Route path="/:member.id" component={Member} />
+          
         </div>
         </ApiContext.Provider>
     );
