@@ -4,6 +4,7 @@ import React from 'react';
   members: [],
   addMember: () => {},
   deleteMember: () => {},
+  editMember: () => {},
 })
 
 export default ApiContext;

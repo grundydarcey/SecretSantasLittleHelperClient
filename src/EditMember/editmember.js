@@ -1,7 +1,42 @@
 import React from 'react';
 import './editmember.css';
+import config from '../config';
+
+import axios from 'axios';
 
 export default class EditMember extends React.Component {
+  state = {
+    member_name: '',
+    dollars: ''
+  }
+  
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
+
+ 
+
+  getMemberFields() {
+    let id = this.props.match.params.member_id;
+    axios.get(`${config.API_ENDPOINT}/members/` + id)
+    .then(response => {
+      this.setState({ 
+        member_name: this.response.data.member_name,
+        dollars: this.response.data.dollars,
+      }, () => {
+        console.log(this.state)
+      })
+    })
+    .catch(err => console.log(err));
+  }
+
+  componentWillMount() {
+    this.getMemberFields();
+    console.log(this.state, 'this.state')
+  }
+  
   render() {
     return (
     <div className='editmember'>

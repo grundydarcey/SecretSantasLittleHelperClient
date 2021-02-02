@@ -45,6 +45,7 @@ export default class NewMember extends React.Component {
       console.error({ error })
     })
     this.props.history.push('/members');
+
   }
 
 
@@ -74,10 +75,10 @@ export default class NewMember extends React.Component {
               <input type="text" name="name" id="name"></input><br />
               <label htmlFor="dollar" className="dollar">Dollar Amount of Gift: </label>
               <input type="text" name="dollar" id="dollar"></input><br /><br />
-              <button type="submit" className="submitmember">Submit New Member</button><br /><br />
-              <Route path='/members'>
+              <button type="submit" className="submitmember">Submit New Member</button>
+              <button type="button" className="cancelsubmit">Cancel</button><br /><br />
               <Link to='/members'>View Members Screen</Link>
-              </Route>
+              
             </fieldset>
           </form>
         </div>

@@ -6,7 +6,11 @@ import { /*Route, */Link } from 'react-router-dom';
 //import NewMember from '../NewMember/newmember';
 
 export default class Group extends React.Component {  
+
+
   static contextType = ApiContext;
+
+
 
   render() {
     const Groupmembers = this.context.members;
@@ -17,7 +21,7 @@ export default class Group extends React.Component {
           <p>Feel free to use the edit, delete and create buttons to fine-tune your Secret Santa group below.</p><br />
           <ul className="members">
             {Groupmembers.map(member =>
-            <li key={member.id}>
+            <li key={member.id} className="individuals">
               Name: {member.member_name}<br />
               Dollars: {member.dollars}<br />
               <Link to={'/members/' + member.id}>
@@ -25,6 +29,7 @@ export default class Group extends React.Component {
               </Link>
             </li>
             )}
+            <br />
             <li className="newmember">
               <h2>Create New Member</h2>
               <Link to='/newmember'>Create New Member</Link>

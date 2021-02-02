@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import LandingPage from './LandingPage/landing-page';
 import { Route } from 'react-router-dom';
-import Login from './Login/login';
-import CreateAccount from './CreateAccount/create-account';
-import Header from './Header/header';
+import Login from './unused/YourDraw/Login/login';
+import CreateAccount from './unused/YourDraw/CreateAccount/create-account';
+import Header from './unused/YourDraw/Login/Header/header';
 import Rules from './Rules/rules';
-import DrawScreen from './DrawScreen/drawscreen';
+import DrawScreen from './unused/YourDraw/DrawScreen/drawscreen';
 import Group from './Group/group';
 import Individual from './Individual/Individual';
 import NewMember from './NewMember/newmember';
 import EditMember from './EditMember/editmember';
-import YourDraw from './YourDraw/yourdraw';
-import FinalDraw from './FinalDraw/finaldraw';
+import YourDraw from './unused/YourDraw/yourdraw';
+import FinalDraw from './unused/YourDraw/FinalDraw/finaldraw';
 import config from './config';
 import ApiContext  from './ApiContext';
 import Member from './Member';
@@ -23,6 +23,7 @@ export default class App extends Component {
     this.state = {
     members: [],
     addMember: () => { },
+    editMember: () => { },
   }
 }
 
@@ -48,6 +49,10 @@ export default class App extends Component {
         console.error({ error });
       }) 
     }
+
+  editMember = (editedMember) => {
+
+  }
 
   addMember = (newMember) => {
     const addMember = [...this.state.members, newMember];
