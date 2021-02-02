@@ -1,29 +1,16 @@
 import React from 'react';
 import './group.css';
+//import config from '../config';
 import ApiContext from '../ApiContext';
-import { Route, Link } from 'react-router-dom';
-import Member from '../Member';
+import { /*Route, */Link } from 'react-router-dom';
+//import NewMember from '../NewMember/newmember';
 
 export default class Group extends React.Component {  
   static contextType = ApiContext;
 
-  componentDidMount() {
-    this.setState({ members: this.props.members })
-  }
-
-  /*componentDidUpdate(prevProps) {
-    if(prevProps.members !== this.props.members) {
-      this.updateAndNotify();
-    }
-  }*/
-
   render() {
-    console.log(this.context, 'this.context')
-    console.log(this.props.match.params, 'this.props.match.params')
     const Groupmembers = this.context.members;
-    console.log(Groupmembers, 'groupmembers new with context')
-      return (
-        
+    return (    
       <div className="groupmembers">      
         <h1>Customize Your Group</h1>
         <div className="groupbody">
@@ -34,18 +21,16 @@ export default class Group extends React.Component {
               Name: {member.member_name}<br />
               Dollars: {member.dollars}<br />
               <Link to={'/members/' + member.id}>
-                Edit Member
+                Edit/Remove Member
               </Link>
-              <button className="deletemember">Delete</button>
             </li>
             )}
             <li className="newmember">
               <h2>Create New Member</h2>
-              <button type="button" className="newbutton">Add New Member Details</button>
+              <Link to='/newmember'>Create New Member</Link>
             </li>
             </ul>
           <button className="begindrawing" type="button">Begin Drawing</button>
-        
         </div>
       </div>
     )

@@ -16,11 +16,13 @@ import config from './config';
 import ApiContext  from './ApiContext';
 import Member from './Member';
 
+
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    members: []
+    members: [],
+    addMember: () => { },
   }
 }
 
@@ -47,6 +49,11 @@ export default class App extends Component {
       }) 
     }
 
+  addMember = (newMember) => {
+    const addMember = [...this.state.members, newMember];
+    this.setState({ members: addMember })
+  }
+
   handleDeleteMember = memberId => {
     this.setState({
       members: this.state.members.filter(member => member.id !== memberId),
@@ -55,9 +62,12 @@ export default class App extends Component {
 
   render() {
     const value = {
-      members: this.state.members
+      members: this.state.members,
+      addMember: this.state.addMember,
+      deleteMember: this.handleDeleteMember
     }
     return ( 
+    
       <ApiContext.Provider value={value}>  
         <div className="App">
           <Header />
@@ -73,9 +83,9 @@ export default class App extends Component {
           <Route exact path='/yourdraw' component={YourDraw} />
           <Route path='/members/:member_id' component={Member} />
           <Route exact path='/finaldraw' component={FinalDraw} />
-          
         </div>
         </ApiContext.Provider>
+       
     );
   }
 }

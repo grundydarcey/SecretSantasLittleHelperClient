@@ -1,6 +1,6 @@
 import React from 'react';
 import config from '../config';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import ApiContext from '../ApiContext';
 
 export default class Individual extends React.Component {
