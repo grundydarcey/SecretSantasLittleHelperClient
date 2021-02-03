@@ -5,7 +5,9 @@ import React from 'react';
   addMember: () => {},
   deleteMember: () => {},
   editMember: () => {},
-  selectedMember: []
+  selectedMember: [],
+  remainingDrawPool: [],
+  remainingDrawerPool: [],
 })
 
 export default ApiContext;
