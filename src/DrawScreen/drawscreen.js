@@ -8,7 +8,7 @@ export default class DrawScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedMember: null,
+      selectedMember: [],
     }
     this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
   }
@@ -25,13 +25,13 @@ export default class DrawScreen extends React.Component {
   static contextType = ApiContext;
 
   handleDropDownSelection(e) {
-    this.setState({
-      selectedMember: e.target.value
-    })
-    this.props.history.push('/yourdraw')
+    const parsifyTarget = JSON.parse(e.target.value);
+    this.context.selectedMember = parsifyTarget
+    console.log(this.context.selectedMember, 'setstatenew')
   }
 
   render() {  
+    console.log(this.context.selectedMember, 'selected member')
     const Groupmembers = this.context.members;
     return (
       <div className="drawscreen">

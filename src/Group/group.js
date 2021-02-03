@@ -31,7 +31,6 @@ export default class Group extends React.Component {
             </li>
             </ul>
           <Link to ='/drawscreen'>Start Drawing Names!</Link><br />
-          <button className="begindrawing" type="button">Begin Drawing</button>
         </div>
       </div>
     )

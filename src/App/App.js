@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import LandingPage from './LandingPage/landing-page';
+import LandingPage from '../LandingPage/landing-page';
 import { Route } from 'react-router-dom';
-import Login from './unused/YourDraw/Login/login';
-import CreateAccount from './unused/YourDraw/CreateAccount/create-account';
-import Header from './unused/YourDraw/Login/Header/header';
-import Rules from './Rules/rules';
-import DrawScreen from './DrawScreen/drawscreen';
-import Group from './Group/group';
-import Individual from './Individual/Individual';
-import NewMember from './NewMember/newmember';
-import EditMember from './EditMember/editmember';
-import YourDraw from './YourDraw/yourdraw';
-import FinalDraw from './unused/YourDraw/FinalDraw/finaldraw';
-import config from './config';
-import ApiContext  from './ApiContext';
-import Member from './Member';
+import Header from '../FinalDraw/Header/header';
+import Rules from '../Rules/rules';
+import DrawScreen from '../DrawScreen/drawscreen';
+import Group from '../Group/group';
+import Individual from '../Individual/Individual';
+import NewMember from '../NewMember/newmember';
+import YourDraw from '../YourDraw/yourdraw';
+import FinalDraw from '../FinalDraw/finaldraw';
+import config from '../config';
+import ApiContext  from '../ApiContext';
+import Member from '../Member/Member';
 
 export default class App extends Component {
   constructor(props) {
@@ -23,7 +20,7 @@ export default class App extends Component {
     members: [],
     addMember: () => { },
     editMember: () => { },
-    selectedMember: [],
+    selectedMember: {},
   }
 }
 
@@ -70,26 +67,22 @@ export default class App extends Component {
       members: this.state.members,
       addMember: this.state.addMember,
       deleteMember: this.handleDeleteMember,
-      //selectedMember: this.selectedMember
     }
     return ( 
       <ApiContext.Provider value={value}>  
         <div className="App">
           <Header />
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/createaccount' component={CreateAccount} />
           <Route exact path='/rules' component={Rules} />
           <Route exact path='/members/' component={Group} />
           <Route exact path='/individual' component={Individual} />
           <Route exact path='/newmember' component={NewMember} />
           <Route exact path='/drawscreen' component={DrawScreen} />
-          <Route exact path='/editmember' component={EditMember} />
           <Route exact path='/yourdraw' component={YourDraw} />
           <Route path='/members/:member_id' component={Member} />
           <Route exact path='/finaldraw' component={FinalDraw} />
         </div>
-        </ApiContext.Provider>
+      </ApiContext.Provider>
     );
   }
 }
