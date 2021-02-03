@@ -9,24 +9,12 @@ export default class YourDraw extends React.Component {
       selectedMember: [],
       remainingDrawPool: [],
       remainingDrawerPool: [],
-      //showButton: true,
     }
-    //this.handleClick = this.handleClick.bind(this)
   }
 
   static contextType = ApiContext;
-
-  /*handleClick = () => {
-      this.setState({ showButton: false })
-    }
-*/
-   
   
   render() {
-
-
-  
-
     const memberSelect = this.context.selectedMember
     console.log(memberSelect, 'CURRENT CONTEXT')
     const Groupmembers = this.context.members;
@@ -43,11 +31,9 @@ export default class YourDraw extends React.Component {
         <div className="drawbody">
           <p>Here's the moment you've been waiting for... check the nice list again...</p>
           <div className="drawname">
-        <h2>You've drawn...</h2>
-        {randomMember.member_name}
-      </div>
-          
-          
+            <h2>You've drawn...</h2>
+            {randomMember.member_name}
+          </div>
           <p>Now before you pass the device to the next person in line, hit the 'Ready to Pass' button so they don't see who you're buying a gift for!</p><br />
           <button type="button" className="pass">Ready to pass?</button>
         </div>
