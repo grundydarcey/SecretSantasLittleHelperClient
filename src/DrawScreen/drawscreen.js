@@ -11,6 +11,7 @@ export default class DrawScreen extends React.Component {
       selectedMember: [],
       remainingDrawPool: [],
       remainingDrawerPool: [],
+      previouslySelectedMember: []
     }
     this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
   }
@@ -29,14 +30,20 @@ export default class DrawScreen extends React.Component {
   handleDropDownSelection(e) {
     const parsifyTarget = JSON.parse(e.target.value);
     this.context.selectedMember = parsifyTarget
+    //this.context.remainingDrawerPool = ()
     console.log(this.context.selectedMember, 'CURRENT CONTEXT')
   }
 
-  
+  componentDidMount() {
+    //this.context.
+  }
 
   render() {  
     //console.log(this.context.selectedMember, 'selected member')
     const Groupmembers = this.context.members;
+    const remainingMembers = this.context.remainingDrawerPool;
+    console.log(Groupmembers, 'thiscontextmembers')
+    console.log(remainingMembers, 'thiscontextdrawerpool')
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>
@@ -52,7 +59,7 @@ export default class DrawScreen extends React.Component {
               onChange={this.handleDropDownSelection}
             >
               <option className="pickName">Pick your name from below...</option>
-              {Groupmembers.map(member => {
+              {remainingMembers.map(member => {
                 return <option 
                   key={member.id}
                   value={JSON.stringify(member)} 

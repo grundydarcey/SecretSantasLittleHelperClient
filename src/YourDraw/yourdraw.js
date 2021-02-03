@@ -1,6 +1,7 @@
 import React from 'react';
 import './yourdraw.css';
 import ApiContext from '../ApiContext';
+import { Link } from 'react-router-dom';
 
 export default class YourDraw extends React.Component {
   constructor(props) {
@@ -9,22 +10,55 @@ export default class YourDraw extends React.Component {
       selectedMember: [],
       remainingDrawPool: [],
       remainingDrawerPool: [],
+      previouslySelectedMember: [],
     }
   }
 
   static contextType = ApiContext;
-  
-  render() {
+
+  componentDidMount() {
     const memberSelect = this.context.selectedMember
-    console.log(memberSelect, 'CURRENT CONTEXT')
     const Groupmembers = this.context.members;
+    const remainingMembers = this.context.remainingDrawerPool
     const minusDrawerGroup = Groupmembers.filter(function(obj) {
       return obj.id !== memberSelect.id
     })
-    console.log(minusDrawerGroup, 'NEWDRAWINGARRAY')
     const randomMember =  minusDrawerGroup[Math.floor(Math.random()*minusDrawerGroup.length)]
-    //console.log(randomMember)
+    const newDrawGroup = Groupmembers.filter(function(obj) {
+      return obj.id !== randomMember.id
+    })
+    const newDrawerGroup = Groupmembers.filter(function(obj) {
+      return obj.id !== memberSelect.id
+    })
+
+    this.context.remainingDrawPool = newDrawGroup;
+    this.context.remainingDrawerPool = newDrawerGroup;
+  }
+  
+  render() {
+    const memberSelect = this.context.selectedMember
+   // console.log(memberSelect, 'CURRENT CONTEXT')
+    const Groupmembers = this.context.members;
+    
+  const minusDrawerGroup = Groupmembers.filter(function(obj) {
+      return obj.id !== memberSelect.id
+    })
+
+    //console.log(minusDrawerGroup, 'NEWDRAWINGARRAY')
+
+   
+
+    //const newDrawerGroup =
+
+    const randomMember =  minusDrawerGroup[Math.floor(Math.random()*minusDrawerGroup.length)]
+    //console.log(randomMember, 'randommember exclude from new drawgroup')
     const drawer = memberSelect.member_name;
+
+   /*const newDrawGroup = Groupmembers.filter(function(obj) {
+      return obj.id !== randomMember.id
+    })
+*/
+    //console.log(newDrawGroup, 'newDrawGroup')
     return (
       <div className='drawing'>
         <h1>{drawer}'s Draw</h1>
@@ -35,7 +69,7 @@ export default class YourDraw extends React.Component {
             {randomMember.member_name}
           </div>
           <p>Now before you pass the device to the next person in line, hit the 'Ready to Pass' button so they don't see who you're buying a gift for!</p><br />
-          <button type="button" className="pass">Ready to pass?</button>
+          <Link to ='/drawscreen'>Ready to pass?</Link>
         </div>
       </div>
     )

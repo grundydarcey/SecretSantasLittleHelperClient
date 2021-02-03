@@ -21,6 +21,7 @@ export default class App extends Component {
     addMember: () => { },
     editMember: () => { },
     selectedMember: {},
+    remainingDrawerPool: [],
   }
 }
 
@@ -40,7 +41,7 @@ export default class App extends Component {
         return Promise.all([membersRes.json()]);
       })
      .then(([members]) => {
-        this.setState({ members });
+        this.setState({ members, remainingDrawerPool: members });
       })
       .catch((error) => {
         console.error({ error });
@@ -67,6 +68,7 @@ export default class App extends Component {
       members: this.state.members,
       addMember: this.state.addMember,
       deleteMember: this.handleDeleteMember,
+      remainingDrawerPool: this.state.remainingDrawerPool,
     }
     return ( 
       <ApiContext.Provider value={value}>  
