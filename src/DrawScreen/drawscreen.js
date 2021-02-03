@@ -1,5 +1,5 @@
 import './drawscreen.css';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ApiContext from '../ApiContext';
 import { Route, Link } from 'react-router-dom';
 import YourDraw from '../YourDraw/yourdraw';
@@ -26,6 +26,14 @@ export default class DrawScreen extends React.Component {
   }
 
   static contextType = ApiContext;
+
+  const [previous, setPrevious] = useContext([]);
+
+  handleAdd(previous) {
+    const newPrevious = [...this.context.previouslySelectedMember];
+    newPrevious.push(item);
+    setPrevious(newPrevious)
+}
 
 
   handleDropDownSelection(e) {
