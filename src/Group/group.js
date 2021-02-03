@@ -1,16 +1,11 @@
 import React from 'react';
 import './group.css';
-//import config from '../config';
 import ApiContext from '../ApiContext';
 import { /*Route, */Link } from 'react-router-dom';
-//import NewMember from '../NewMember/newmember';
 
 export default class Group extends React.Component {  
 
-
   static contextType = ApiContext;
-
-
 
   render() {
     const Groupmembers = this.context.members;
@@ -35,6 +30,7 @@ export default class Group extends React.Component {
               <Link to='/newmember'>Create New Member</Link>
             </li>
             </ul>
+          <Link to ='/drawscreen'>Start Drawing Names!</Link><br />
           <button className="begindrawing" type="button">Begin Drawing</button>
         </div>
       </div>

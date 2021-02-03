@@ -5,6 +5,7 @@ import React from 'react';
   addMember: () => {},
   deleteMember: () => {},
   editMember: () => {},
+  selectedMember: []
 })
 
 export default ApiContext;

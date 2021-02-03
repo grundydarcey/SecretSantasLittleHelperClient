@@ -46,7 +46,6 @@ export default class Member extends Component {
 
   componentWillMount() {
     this.getMemberFields();
-    console.log(this.state, 'this.state')
   }
 
   componentDidMount() {
@@ -114,7 +113,6 @@ export default class Member extends Component {
   }
   
   render() { 
-    //const { member_name, id } = this.props;
     const member = this.state.member ?  (
       <div className='center'>
         <h2>You are now editing information for group member {this.state.member.member_name} with a ${this.state.member.dollars} limit.</h2><br />

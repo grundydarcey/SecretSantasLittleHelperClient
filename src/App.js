@@ -5,17 +5,16 @@ import Login from './unused/YourDraw/Login/login';
 import CreateAccount from './unused/YourDraw/CreateAccount/create-account';
 import Header from './unused/YourDraw/Login/Header/header';
 import Rules from './Rules/rules';
-import DrawScreen from './unused/YourDraw/DrawScreen/drawscreen';
+import DrawScreen from './DrawScreen/drawscreen';
 import Group from './Group/group';
 import Individual from './Individual/Individual';
 import NewMember from './NewMember/newmember';
 import EditMember from './EditMember/editmember';
-import YourDraw from './unused/YourDraw/yourdraw';
+import YourDraw from './YourDraw/yourdraw';
 import FinalDraw from './unused/YourDraw/FinalDraw/finaldraw';
 import config from './config';
 import ApiContext  from './ApiContext';
 import Member from './Member';
-
 
 export default class App extends Component {
   constructor(props) {
@@ -24,6 +23,7 @@ export default class App extends Component {
     members: [],
     addMember: () => { },
     editMember: () => { },
+    selectedMember: [],
   }
 }
 
@@ -50,8 +50,8 @@ export default class App extends Component {
       }) 
     }
 
-  editMember = (editedMember) => {
-
+ selectedMember() {
+    this.setState({ selectedMember: this.context.selectedMember })
   }
 
   addMember = (newMember) => {
@@ -69,10 +69,10 @@ export default class App extends Component {
     const value = {
       members: this.state.members,
       addMember: this.state.addMember,
-      deleteMember: this.handleDeleteMember
+      deleteMember: this.handleDeleteMember,
+      //selectedMember: this.selectedMember
     }
     return ( 
-    
       <ApiContext.Provider value={value}>  
         <div className="App">
           <Header />
@@ -90,7 +90,6 @@ export default class App extends Component {
           <Route exact path='/finaldraw' component={FinalDraw} />
         </div>
         </ApiContext.Provider>
-       
     );
   }
 }
