@@ -1,5 +1,5 @@
 import './drawscreen.css';
-import React from 'react';
+import React, { useState } from 'react';
 import ApiContext from '../ApiContext';
 import { Route, Link } from 'react-router-dom';
 import YourDraw from '../YourDraw/yourdraw';
@@ -11,7 +11,7 @@ export default class DrawScreen extends React.Component {
       selectedMember: [],
       remainingDrawPool: [],
       remainingDrawerPool: [],
-      previouslySelectedMember: []
+      previouslySelectedMember: [],
     }
     this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
   }
@@ -27,23 +27,24 @@ export default class DrawScreen extends React.Component {
 
   static contextType = ApiContext;
 
+
   handleDropDownSelection(e) {
     const parsifyTarget = JSON.parse(e.target.value);
     this.context.selectedMember = parsifyTarget
-    //this.context.remainingDrawerPool = ()
+    console.log(this.context.previouslySelectedMember)
     console.log(this.context.selectedMember, 'CURRENT CONTEXT')
   }
 
-  componentDidMount() {
-    //this.context.
-  }
+ 
 
   render() {  
-    //console.log(this.context.selectedMember, 'selected member')
+    
     const Groupmembers = this.context.members;
+    const previousMembers = this.context.previouslySelectedMembers;
     const remainingMembers = this.context.remainingDrawerPool;
     console.log(Groupmembers, 'thiscontextmembers')
     console.log(remainingMembers, 'thiscontextdrawerpool')
+    console.log(previousMembers, 'previousmembers')
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>

@@ -45,8 +45,8 @@ export default class YourDraw extends React.Component {
     })
 
     //console.log(minusDrawerGroup, 'NEWDRAWINGARRAY')
-
-   
+  const pushTo = this.context.previouslySelectedMember
+  console.log(pushTo)
 
     //const newDrawerGroup =
 
