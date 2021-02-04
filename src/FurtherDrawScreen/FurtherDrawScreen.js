@@ -1,53 +1,52 @@
-import './drawscreen.css';
 import React from 'react';
 import ApiContext from '../ApiContext';
 import { Link } from 'react-router-dom';
+import './FurtherDrawScreen.css';
 
-export default class DrawScreen extends React.Component {
+export default class FurtherDrawScreen extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
+      super(props);
+      this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
   }
 
   static defaultProps = {
-    match: {
-      params: {}
-    },
-    history: {
-      push: () => { }
-    }
+      match: {
+          params: {}
+      },
+      history: {
+          push: () => { }
+      }
   }
 
   static contextType = ApiContext;
 
   handleDropDownSelection(e) {
-    const parsifyTarget = JSON.parse(e.target.value);
-    this.context.handleSelectedMember(parsifyTarget)
-    this.context.handlePreviouslySelectedMember(parsifyTarget)
+      const parsifyTarget = JSON.parse(e.target.value);
+      this.context.handleSelectedMember(parsifyTarget);
+      this.context.handlePreviouslySelectedMember(parsifyTarget);
   }
 
-  render() {  
-    const Groupmembers = this.context.members;
-    const previousMembers = this.context.previouslySelectedMembers;
-    const remainingMembers = this.context.remainingDrawerPool;
-    console.log(Groupmembers, 'thiscontextmembers')
-    console.log(previousMembers, 'previousmembers')
-    console.log(this.context.previouslySelectedMember, 'aftercontext')
-    console.log(this.context.selectedMember)
+  /*componentDidMount() {
 
-    /*const isFinalDrawing = (Groupmembers.length - previousMembers.length === 1) ? (
+  }*/
+
+  render() {
+    const Groupmembers = this.context.members;
+    const previousMembers = this.context.previouslySelectedMember;
+    const remainingMembers = this.context.remainingDrawerPool;
+    console.log(Groupmembers, 'groupmembers')
+    console.log(previousMembers, 'previous')
+    const isFinalDrawing = (Groupmembers.length - previousMembers.length === 1) ? (
       <div className="finalDraw">
-        <Link to='/finaldraw'>Click here to see the final drawing</Link>
+        <Link to='/finaldraw'>Click here to see the final draw</Link>
       </div>
     ) : (
       <div className="standardDraw">
         <Link to='/yourdraw'>See your secret match!</Link>
       </div>
-    )*/
-  
-
+    )
     return (
-      <div className="drawscreen">
+        <div className="drawscreen">
         <h1>Begin Drawing</h1>
         <div className="drawbody">
           <p>Here comes the fun part.</p>
@@ -69,11 +68,10 @@ export default class DrawScreen extends React.Component {
                 >{member.member_name}</option>})}
             </select><br /><br />
           </form>
-          <div className="standardDraw">
-        <Link to='/yourdraw'>See your secret match!</Link>
-      </div>
+          {isFinalDrawing}
         </div>
       </div>
+
     )
   }
 }

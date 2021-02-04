@@ -12,6 +12,7 @@ import FinalDraw from '../FinalDraw/finaldraw';
 import config from '../config';
 import ApiContext  from '../ApiContext';
 import Member from '../Member/Member';
+import FurtherDrawScreen from '../FurtherDrawScreen/FurtherDrawScreen';
 
 export default class App extends Component {
   constructor(props) {
@@ -20,10 +21,11 @@ export default class App extends Component {
       members: [],
       addMember: () => { },
       editMember: () => { },
-      selectedMember: {},
+      selectedMember: [],
       remainingDrawerPool: [],
       remainingDrawPool: [],
       previouslySelectedMember: [],
+    
     }
   }
 
@@ -50,8 +52,12 @@ export default class App extends Component {
       }) 
     }
 
- selectedMember() {
-    this.setState({ selectedMember: this.context.selectedMember })
+  handleSelectedMember = (drawnMember) => {
+    this.setState({ selectedMember: drawnMember })
+  }
+
+   handlePreviouslySelectedMember = (chosenMember) => {
+    this.setState({ previouslySelectedMember: [...this.state.previouslySelectedMember, chosenMember]})
   }
 
   addMember = (newMember) => {
@@ -73,6 +79,9 @@ export default class App extends Component {
       remainingDrawerPool: this.state.remainingDrawerPool,
       remainingDrawPool: this.state.remainingDrawPool,
       previouslySelectedMember: this.state.previouslySelectedMember,
+      handlePreviouslySelectedMember: this.handlePreviouslySelectedMember,
+      handleSelectedMember: this.handleSelectedMember,
+      selectedMember: this.state.selectedMember,
     }
     return ( 
       <ApiContext.Provider value={value}>  
@@ -84,6 +93,7 @@ export default class App extends Component {
           <Route exact path='/individual' component={Individual} />
           <Route exact path='/newmember' component={NewMember} />
           <Route exact path='/drawscreen' component={DrawScreen} />
+          <Route exact path='/drawingscreen' component={FurtherDrawScreen} />
           <Route exact path='/yourdraw' component={YourDraw} />
           <Route path='/members/:member_id' component={Member} />
           <Route exact path='/finaldraw' component={FinalDraw} />
