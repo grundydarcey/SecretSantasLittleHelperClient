@@ -17,13 +17,15 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    members: [],
-    addMember: () => { },
-    editMember: () => { },
-    selectedMember: {},
-    remainingDrawerPool: [],
+      members: [],
+      addMember: () => { },
+      editMember: () => { },
+      selectedMember: {},
+      remainingDrawerPool: [],
+      remainingDrawPool: [],
+      previouslySelectedMember: [],
+    }
   }
-}
 
   static contextType = ApiContext;
     
@@ -69,6 +71,8 @@ export default class App extends Component {
       addMember: this.state.addMember,
       deleteMember: this.handleDeleteMember,
       remainingDrawerPool: this.state.remainingDrawerPool,
+      remainingDrawPool: this.state.remainingDrawPool,
+      previouslySelectedMember: this.state.previouslySelectedMember,
     }
     return ( 
       <ApiContext.Provider value={value}>  

@@ -30,11 +30,16 @@ export default class DrawScreen extends React.Component {
   handleDropDownSelection(e) {
     const parsifyTarget = JSON.parse(e.target.value);
     this.context.selectedMember = parsifyTarget
-    console.log(this.context.previouslySelectedMember)
+    console.log(this.context.previouslySelectedMember, 'before previous')
     console.log(this.context.selectedMember, 'CURRENT CONTEXT')
+    this.setState({
+      previouslySelectedMember: [...this.state.previouslySelectedMember, parsifyTarget]
+    })
   }
 
- 
+  componentDidMount() {
+    
+  }
 
   render() {  
     
@@ -44,6 +49,8 @@ export default class DrawScreen extends React.Component {
     console.log(Groupmembers, 'thiscontextmembers')
     console.log(remainingMembers, 'thiscontextdrawerpool')
     console.log(previousMembers, 'previousmembers')
+    console.log(this.context.previouslySelectedMember, 'aftercontext')
+    console.log(this.state.previouslySelectedMember, 'afterstate')
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>
