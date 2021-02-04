@@ -25,7 +25,7 @@ export default class App extends Component {
       remainingDrawerPool: [],
       remainingDrawPool: [],
       previouslySelectedMember: [],
-    
+      handleDrawnMember: []
     }
   }
 
@@ -51,6 +51,10 @@ export default class App extends Component {
         console.error({ error });
       }) 
     }
+
+  handleDrawnMember = (drawnMember) => {
+    this.setState({ remainingDrawPool: [...this.state.remainingDrawPool, drawnMember]})
+  }
 
   handleSelectedMember = (drawnMember) => {
     this.setState({ selectedMember: drawnMember })
@@ -82,6 +86,7 @@ export default class App extends Component {
       handlePreviouslySelectedMember: this.handlePreviouslySelectedMember,
       handleSelectedMember: this.handleSelectedMember,
       selectedMember: this.state.selectedMember,
+      handleDrawnMember: this.state.handleDrawnMember,
     }
     return ( 
       <ApiContext.Provider value={value}>  
