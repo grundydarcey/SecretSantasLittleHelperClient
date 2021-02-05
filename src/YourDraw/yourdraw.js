@@ -28,19 +28,13 @@ export default class YourDraw extends React.Component {
       }
     })
    
-    /*const minusDrawGroup = Groupmembers.filter(function(obj) {
-      const checkId = 
-    })*/
+  
     this.context.handleDrawnMember(randomMember);
     this.context.remainingDrawPool = newDrawGroup;
     this.context.remainingDrawerPool = minusDrawerGroup;
   }
 
-  /*
-  addToDrawn() {
-
-    this.context.handleDrawnMember(randomizedMember)
-  }*/
+ 
   
   render() {
     const memberSelect = this.context.selectedMember
@@ -53,10 +47,26 @@ export default class YourDraw extends React.Component {
     if (checkId === false) {
       return obj.id
     }
+    
   })
     const randomMember =  minusDrawerGroup[Math.floor(Math.random()*minusDrawerGroup.length)];
     
     const drawer = memberSelect.member_name;
+    console.log(minusDrawerGroup)
+    //console.log(this.context)
+    console.log()
+
+    const ifDrawingBegan = (this.context.previouslySelectedMember.length >= 1) ? (
+      <div className="link">
+        <Link to='/drawingscreen'>Ready to pass?</Link>
+      </div>
+    ) : (
+      <div className="link">
+        <Link to='/drawscreen'>Ready to pass?</Link>
+      </div>
+    )
+
+
     return (
       <div className='drawing'>
         <h1>{drawer}'s Draw</h1>
@@ -67,7 +77,7 @@ export default class YourDraw extends React.Component {
             {randomMember.member_name}
           </div>
           <p>Now before you pass the device to the next person in line, hit the 'Ready to Pass' button so they don't see who you're buying a gift for!</p><br />
-          <Link to ='/drawingscreen' >Ready to pass?</Link>
+          {ifDrawingBegan}
         </div>
       </div>
     )

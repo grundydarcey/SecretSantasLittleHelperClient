@@ -25,7 +25,8 @@ export default class App extends Component {
       remainingDrawerPool: [],
       remainingDrawPool: [],
       previouslySelectedMember: [],
-      handleDrawnMember: []
+      handleDrawnMember: [],
+      drawingBegan: false,
     }
   }
 
@@ -56,11 +57,19 @@ export default class App extends Component {
     this.setState({ remainingDrawPool: [...this.state.remainingDrawPool, drawnMember]})
   }
 
+ // handleDrawerMember = (drawnMember) => {
+    //this.setState({ remainingDrawerPool: [...this.state.remainingDrawerPool, drawnMember]})
+ // }
+  
+ /* handleDrawingBegan() {
+    this.setState({ drawingBegan: true })
+  }*/
+
   handleSelectedMember = (drawnMember) => {
     this.setState({ selectedMember: drawnMember })
   }
 
-   handlePreviouslySelectedMember = (chosenMember) => {
+  handlePreviouslySelectedMember = (chosenMember) => {
     this.setState({ previouslySelectedMember: [...this.state.previouslySelectedMember, chosenMember]})
   }
 
@@ -86,7 +95,10 @@ export default class App extends Component {
       handlePreviouslySelectedMember: this.handlePreviouslySelectedMember,
       handleSelectedMember: this.handleSelectedMember,
       selectedMember: this.state.selectedMember,
-      handleDrawnMember: this.state.handleDrawnMember,
+      handleDrawnMember: this.handleDrawnMember,
+      handleDrawerMember: this.handleDrawerMember,
+      drawingBegan: this.state.drawingBegan,
+      handleDrawingBegan: this.handleDrawingBegan,
     }
     return ( 
       <ApiContext.Provider value={value}>  

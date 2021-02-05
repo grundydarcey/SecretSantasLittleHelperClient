@@ -34,9 +34,21 @@ export default class FurtherDrawScreen extends React.Component {
     const Groupmembers = this.context.members;
     const previousMembers = this.context.previouslySelectedMember;
     const remainingMembers = this.context.remainingDrawerPool;
-    console.log(Groupmembers, 'groupmembers')
-    console.log(previousMembers, 'previous')
-    const isFinalDrawing = (Groupmembers.length - previousMembers.length === 1) ? (
+    //console.log(Groupmembers, 'groupmembers')
+    //console.log(previousMembers, 'previous')
+
+    const pastMembers = this.context.previouslySelectedMember;
+    const pastMemberIds = pastMembers.map(pastMember =>
+      pastMember.id)  
+    const minusDrawerGroup = Groupmembers.filter(function(obj) {
+    const checkId = pastMemberIds.includes(obj.id)
+    if (checkId === false) {
+      return obj.id
+    }
+  })
+
+    //console.log(remainingMembers, 'thisremainingmembers')
+    const isFinalDrawing = (Groupmembers.length - previousMembers.length < 1) ? (
       <div className="finalDraw">
         <Link to='/finaldraw'>Click here to see the final draw</Link>
       </div>
@@ -45,6 +57,7 @@ export default class FurtherDrawScreen extends React.Component {
         <Link to='/yourdraw'>See your secret match!</Link>
       </div>
     )
+    
     return (
         <div className="drawscreen">
         <h1>Begin Drawing</h1>
@@ -60,7 +73,7 @@ export default class FurtherDrawScreen extends React.Component {
               onChange={this.handleDropDownSelection}
             >
               <option className="pickName">Pick your name from below...</option>
-              {remainingMembers.map(member => {
+              {minusDrawerGroup.map(member => {
                 return <option 
                   key={member.id}
                   value={JSON.stringify(member)} 

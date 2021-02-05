@@ -24,16 +24,20 @@ export default class DrawScreen extends React.Component {
     const parsifyTarget = JSON.parse(e.target.value);
     this.context.handleSelectedMember(parsifyTarget)
     this.context.handlePreviouslySelectedMember(parsifyTarget)
+    //this.context.handleDrawingBegan()
   }
 
   render() {  
     const Groupmembers = this.context.members;
     const previousMembers = this.context.previouslySelectedMembers;
+   // const remainingMembers = this.context.remainingDrawerPool;
     const remainingMembers = this.context.remainingDrawerPool;
-    console.log(Groupmembers, 'thiscontextmembers')
-    console.log(previousMembers, 'previousmembers')
-    console.log(this.context.previouslySelectedMember, 'aftercontext')
-    console.log(this.context.selectedMember)
+    console.log(remainingMembers)
+    //console.log(Groupmembers, 'thiscontextmembers')
+    //console.log(previousMembers, 'previousmembers')
+    //console.log(remainingMembers, 'remainingmembers')
+    //console.log(this.context.previouslySelectedMember, 'aftercontext')
+    //console.log(this.context.selectedMember)
 
     /*const isFinalDrawing = (Groupmembers.length - previousMembers.length === 1) ? (
       <div className="finalDraw">

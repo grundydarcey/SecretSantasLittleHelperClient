@@ -9,6 +9,7 @@ import React from 'react';
   remainingDrawPool: [],
   remainingDrawerPool: [],
   previouslySelectedMember: [],
+  drawingBegan: false
 })
 
 export default ApiContext;
