@@ -21,34 +21,50 @@ export default class DrawScreen extends React.Component {
   static contextType = ApiContext;
 
   handleDropDownSelection(e) {
+    const Groupmembers = this.context.members;
+    const memberSelect = this.context.selectedMember
     const parsifyTarget = JSON.parse(e.target.value);
-    this.context.handleSelectedMember(parsifyTarget)
-    this.context.handlePreviouslySelectedMember(parsifyTarget)
-    //this.context.handleDrawingBegan()
+    this.context.handleSelectedMember(parsifyTarget);
+    this.context.handlePreviouslySelectedMember(parsifyTarget);
+    this.context.handleAllDrawMembers(Groupmembers)
+    //console.log(Groupmembers)
+    /*const minusSelfGroup = Groupmembers.filter(function(obj) {
+      if (memberSelect.id !== obj.id) {
+        return obj
+      }
+    })*/
+    const minusSelfGroup = Groupmembers.filter((member) => member.id !== memberSelect.id)
+    console.log(parsifyTarget)
+    console.log(minusSelfGroup)
+    
+
+    const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
+    //this.context.handleSelectedMember(parsifyTarget);
+    this.context.handleAllDrawnMembers(thisRandom);
+    this.context.handleCurrentDraw(thisRandom);
+   
+    //console.log(this.context.selectedMember.id)
+    
+    console.log(thisRandom)
   }
 
-  render() {  
-    const Groupmembers = this.context.members;
-    const previousMembers = this.context.previouslySelectedMembers;
+  render() { 
+   //const Groupmembers = this.context.members;
+    //const previousMembers = this.context.previouslySelectedMembers;
    // const remainingMembers = this.context.remainingDrawerPool;
-    const remainingMembers = this.context.remainingDrawerPool;
-    console.log(remainingMembers)
-    //console.log(Groupmembers, 'thiscontextmembers')
-    //console.log(previousMembers, 'previousmembers')
-    //console.log(remainingMembers, 'remainingmembers')
-    //console.log(this.context.previouslySelectedMember, 'aftercontext')
-    //console.log(this.context.selectedMember)
-
-    /*const isFinalDrawing = (Groupmembers.length - previousMembers.length === 1) ? (
-      <div className="finalDraw">
-        <Link to='/finaldraw'>Click here to see the final drawing</Link>
-      </div>
-    ) : (
-      <div className="standardDraw">
-        <Link to='/yourdraw'>See your secret match!</Link>
-      </div>
-    )*/
+  //  const remainingMembers = this.context.remainingDrawerPool;
+    const remainingMembers = this.context.toDraw
+   // console.log(remainingMembers)
+    console.log(this.context.toDraw, 'left to draw')
   
+    console.log(this.context.selectedMember, 'current chosen')
+    console.log(this.context.previouslySelectedMember, 'all past chosen')
+    //console.log(this.context)
+    console.log(this.context.selectedMember.id, 'current chosen id')
+    const remainingDrawPool = this.context.remainingDrawPool;
+   // console.log(remainingDrawPool)
+   console.log(this.context.alreadyDrawn, 'already drawn')
+   console.log(this.context.currentDraw, 'current draw')
 
     return (
       <div className="drawscreen">
@@ -76,7 +92,7 @@ export default class DrawScreen extends React.Component {
           <div className="standardDraw">
         <Link to='/yourdraw'>See your secret match!</Link>
       </div>
-        </div>
+      </div>
       </div>
     )
   }

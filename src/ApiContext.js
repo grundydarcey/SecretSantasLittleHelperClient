@@ -6,10 +6,13 @@ import React from 'react';
   deleteMember: () => {},
   editMember: () => {},
   selectedMember: [],
-  remainingDrawPool: [],
+  //remainingDrawPool: [],
   remainingDrawerPool: [],
   previouslySelectedMember: [],
-  drawingBegan: false
+  drawingBegan: false,
+  toDraw: [],
+  alreadyDrawn: [],
+  currentDraw: [],
 })
 
 export default ApiContext;

@@ -22,11 +22,13 @@ export default class App extends Component {
       addMember: () => { },
       editMember: () => { },
       selectedMember: [],
-      remainingDrawerPool: [],
-      remainingDrawPool: [],
+      //remainingDrawerPool: [],
+      //remainingDrawPool: [],
       previouslySelectedMember: [],
-      handleDrawnMember: [],
       drawingBegan: false,
+      alreadyDrawn: [],
+      toDraw: [],
+      currentDraw: [],
     }
   }
 
@@ -46,24 +48,28 @@ export default class App extends Component {
         return Promise.all([membersRes.json()]);
       })
      .then(([members]) => {
-        this.setState({ members, remainingDrawerPool: members });
+        this.setState({ members, toDraw: members });
       })
       .catch((error) => {
         console.error({ error });
       }) 
     }
 
-  handleDrawnMember = (drawnMember) => {
-    this.setState({ remainingDrawPool: [...this.state.remainingDrawPool, drawnMember]})
+  handleAllDrawnMembers = (drawnMember) => {
+    this.setState({ alreadyDrawn: [...this.state.alreadyDrawn, drawnMember]})
   }
 
- // handleDrawerMember = (drawnMember) => {
-    //this.setState({ remainingDrawerPool: [...this.state.remainingDrawerPool, drawnMember]})
- // }
-  
- /* handleDrawingBegan() {
-    this.setState({ drawingBegan: true })
+  /*handleToDraw = (members) => {
+    this.setState({ })
   }*/
+
+  handleCurrentDraw = (drawnMember) => {
+    this.setState({ currentDraw: drawnMember })
+  }
+
+  handleAllDrawMembers = (members) => {
+    this.setState({ remainingDrawPool: members})
+  }
 
   handleSelectedMember = (drawnMember) => {
     this.setState({ selectedMember: drawnMember })
@@ -89,16 +95,22 @@ export default class App extends Component {
       members: this.state.members,
       addMember: this.state.addMember,
       deleteMember: this.handleDeleteMember,
-      remainingDrawerPool: this.state.remainingDrawerPool,
-      remainingDrawPool: this.state.remainingDrawPool,
+      //remainingDrawerPool: this.state.remainingDrawerPool,
+      //remainingDrawPool: this.state.remainingDrawPool,
       previouslySelectedMember: this.state.previouslySelectedMember,
       handlePreviouslySelectedMember: this.handlePreviouslySelectedMember,
       handleSelectedMember: this.handleSelectedMember,
       selectedMember: this.state.selectedMember,
-      handleDrawnMember: this.handleDrawnMember,
+      //handleDrawnMember: this.handleDrawnMember,
       handleDrawerMember: this.handleDrawerMember,
       drawingBegan: this.state.drawingBegan,
       handleDrawingBegan: this.handleDrawingBegan,
+      handleAllDrawMembers: this.handleAllDrawMembers,
+      alreadyDrawn: this.state.alreadyDrawn,
+      handleAllDrawnMembers: this.handleAllDrawnMembers,
+      toDraw: this.state.toDraw,
+      currentDraw: this.state.currentDraw,
+      handleCurrentDraw: this.handleCurrentDraw
     }
     return ( 
       <ApiContext.Provider value={value}>  
