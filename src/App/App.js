@@ -63,6 +63,10 @@ export default class App extends Component {
     this.setState({ })
   }*/
 
+  handleToDraw = (members) => {
+    this.setState({ toDraw: members })
+  }
+
   handleCurrentDraw = (drawnMember) => {
     this.setState({ currentDraw: drawnMember })
   }
@@ -110,7 +114,8 @@ export default class App extends Component {
       handleAllDrawnMembers: this.handleAllDrawnMembers,
       toDraw: this.state.toDraw,
       currentDraw: this.state.currentDraw,
-      handleCurrentDraw: this.handleCurrentDraw
+      handleCurrentDraw: this.handleCurrentDraw,
+      handleToDraw: this.handleToDraw,
     }
     return ( 
       <ApiContext.Provider value={value}>  

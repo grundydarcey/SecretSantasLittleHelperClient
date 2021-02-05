@@ -4,12 +4,12 @@ import ApiContext from '../ApiContext';
 import { Link } from 'react-router-dom';
 
 export default class YourDraw extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props)
     this.Random = this.Random.bind(this)
     this.getRandom = this.getRandom.bind(this)
     this.handleClick = this.handleClick.bind(this)
-  }
+  }*/
   
   static contextType = ApiContext;
 
@@ -41,9 +41,55 @@ export default class YourDraw extends React.Component {
         return obj.id
       }
     })
-    this.context.handleAllDrawMembers(leftToDraw)
+
   }
 */
+
+  componentDidMount() {
+    const Random = () => {
+      const alreadyDrawnMembers = this.context.alreadyDrawn;
+      const newRandomGroup = alreadyDrawnMembers.filter((member) => member.id !== alreadyDrawnMembers.id)
+      const memberSelect = this.context.selectedMember
+
+      const pushToSelf = alreadyDrawnMembers.push(memberSelect)
+
+      const notSelfOrAlready  = alreadyDrawnMembers.filter((member) => member.id !== pushToSelf.id)
+      
+      const leftToDraw = this.context.toDraw;
+      const randomPool = leftToDraw.filter(function(obj) {
+        return obj.id !== memberSelect.id
+      })
+      
+      const Groupmembers = this.context.members;
+      const minusSelfGroup = Groupmembers.filter(function(obj) {
+        return obj.id !== memberSelect.id
+      })
+      return randomPool[Math.floor(Math.random()*randomPool.length)]
+    }
+  
+    /*const getRandom = () => {
+      const randomMember = Random()
+      //console.log(this.Random())
+      //console.log(randomMember())
+      //return randomMember.member_name
+      return randomMember
+    }*/
+    //console.log(Random())
+    const randomVar = Random()
+  
+    const memberSelect = this.context.selectedMember
+    const Groupmembers = this.context.members;
+    const minusSelfGroup = Groupmembers.filter(function(obj) {
+      return obj.id !== memberSelect.id
+    })
+    //const randomMember =  minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
+    //console.log(getRandom())
+    //console.log(randomVar)
+    //this.context.handleAllDrawnMembers(randomVar)
+    //this.context.handleCurrentDraw(randomVar)
+    console.log(this.context)
+  }
+/*
   handleClick() {
     const memberSelect = this.context.selectedMember
     const Groupmembers = this.context.members;
@@ -53,12 +99,12 @@ export default class YourDraw extends React.Component {
     //const randomMember =  minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
     console.log(this.getRandom())
     this.context.handleAllDrawnMembers(this.getRandom())
+    console.log(this.context)
   }
 
   
   Random() {
     const alreadyDrawnMembers = this.context.alreadyDrawn;
-    //const alreadyDrawnIds = alreadyDrawnMembers.map(alreadyDrawn => alreadyDrawn.id)
     const newRandomGroup = alreadyDrawnMembers.filter((member) => member.id !== alreadyDrawnMembers.id)
     const memberSelect = this.context.selectedMember
     const Groupmembers = this.context.members;
@@ -70,9 +116,12 @@ export default class YourDraw extends React.Component {
 
   getRandom() {
     const randomMember = this.Random()
+    console.log(this.Random())
+    console.log(randomMember())
     //return randomMember.member_name
+    this.context.handleAllDrawnMembers(randomMember)
     return randomMember
-  }
+  }*/
 
   render() {
     const memberSelect = this.context.selectedMember
@@ -80,36 +129,17 @@ export default class YourDraw extends React.Component {
     const pastMembers = this.context.previouslySelectedMember;
     const pastMemberIds = pastMembers.map(pastMember =>
       pastMember.id)
-  const minusDrawerGroup = Groupmembers.filter(function(obj) {
-    const checkId = pastMemberIds.includes(obj.id)
-    if (checkId === false) {
-      return obj.id
-    }
-  })
-  const minusSelfGroup = Groupmembers.filter(function(obj) {
-    return obj.id !== memberSelect.id
-  })
-    //const randomMember =  minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
     const drawer = memberSelect.member_name;
     const ifDrawingBegan = (this.context.previouslySelectedMember.length >= 1) ? (
       <div className="link">
-        <Link to='/drawingscreen' onClick={this.handleClick}>Ready to pass?</Link>
+        <Link to='/drawingscreen'/* onClick={this.handleClick}*/ >Ready to pass?</Link>
       </div>
     ) : (
       <div className="link">
-        <Link to='/drawscreen' onClick={this.handleClick}>Ready to pass?</Link>
+        <Link to='/drawscreen' /*onClick={this.handleClick}*/ >Ready to pass?</Link>
       </div>
     )
-
-    //const remainingDrawPool = this.context.remainingDrawPool;
-    //console.log(remainingDrawPool)
-    console.log(this.context.toDraw)
-    console.log(this.context.alreadyDrawn)
-    console.log(this.context.currentDraw)
-    console.log(this.context.selectedMember)
-
-  
-
+    console.log(this.context)
     return (
       <div className='drawing'>
         <h1>{drawer}'s Draw</h1>

@@ -4,7 +4,19 @@ import { Link } from 'react-router-dom';
 import ApiContext from '../ApiContext';
 
 export default class FinalDraw extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleRestart = this.handleRestart.bind(this)
+  }
+
   static contextType = ApiContext;
+
+  handleRestart() {
+    const Groupmembers = this.context.members
+    this.context.handleToDraw(Groupmembers)
+    this.context.handleAllDrawnMembers([])
+  }
+
   
   render() {
     const memberSelect = this.context.selectedMember;
@@ -39,7 +51,7 @@ export default class FinalDraw extends React.Component {
           <h2>You've drawn...</h2>
           <h3>{this.context.currentDraw.member_name}</h3>
           <p>You did it! Everyone now knows who they need to buy their gifts for. Thank you so much for using our app and please tell a friend about it! If you'd like to start all over with the process, feel free to hit the Home button and start it up again, in case you think there's been any Secret Santa drawing fraud. Have a safe and happy holiday season!</p><br /><br />
-          <Link to='/'>Home</Link>
+          <Link to='/' onClick={this.handleRestart}>Home</Link>
         </div>
       </div>
     )

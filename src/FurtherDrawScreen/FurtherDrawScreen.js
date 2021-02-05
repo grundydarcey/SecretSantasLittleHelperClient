@@ -22,45 +22,39 @@ export default class FurtherDrawScreen extends React.Component {
 
   handleDropDownSelection(e) {
       const Groupmembers = this.context.members;
+      const leftToDraw = this.context.toDraw;
       const alreadyDrawnMembers = this.context.alreadyDrawn;
-      //const alreadyDrawnIds = alreadyDrawnMembers.map(alreadyDrawn => alreadyDrawn.id)
-      const memberSelect = this.context.selectedMember;
       const parsifyTarget = JSON.parse(e.target.value);
       this.context.handleSelectedMember(parsifyTarget);
       this.context.handlePreviouslySelectedMember(parsifyTarget);
-    
-    console.log(alreadyDrawnMembers)
-    //console.log(alreadyDrawnIds)
-
-      /*const newRandomGroup = alreadyDrawnMembers.filter(function(obj) {
-        const checkId = alreadyDrawnIds.includes(obj.id)
-        if (checkId === false) {
-          return obj.id
-        }
-      })*/
-      
       const newRandomGroup = alreadyDrawnMembers.filter((member) => member.id !== alreadyDrawnMembers.id)
-
-      console.log(newRandomGroup)
-      const minusSelfGroup = Groupmembers.filter(function(obj) {
-        return obj.id !== memberSelect.id
+      /*const minusSelfGroup = Groupmembers.filter(function(obj) {
+        return obj.id !== parsifyTarget.id
+      })*/
+      const minusSelfGroup = leftToDraw.filter((member) => {
+        return member.id !== parsifyTarget.id
       })
-      const thisRandom = newRandomGroup[Math.floor(Math.random()*newRandomGroup.length)];
-      console.log(thisRandom)
-      console.log(newRandomGroup)
+      const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
       this.context.handleAllDrawnMembers(thisRandom)
       this.context.handleCurrentDraw(thisRandom);
+      console.log(this.context)
+
+      const randomRemoved = alreadyDrawnMembers.filter((member) => {
+        return member.id !== thisRandom.id
+      })
+
+      this.context.handleToDraw(randomRemoved)
   }
 
   render() {
-    console.log(this.context.alreadyDrawn)
+    //console.log(this.context.alreadyDrawn)
     const Groupmembers = this.context.members;
     const previousMembers = this.context.previouslySelectedMember;
     //const remainingMembers = this.context.remainingDrawerPool;
     const pastMembers = this.context.previouslySelectedMember;
     const pastMemberIds = pastMembers.map(pastMember =>
       pastMember.id)  
-    console.log(this.context.selectedMember)
+    //console.log(this.context.selectedMember)
     const minusDrawerGroup = Groupmembers.filter(function(obj) {
     const checkId = pastMemberIds.includes(obj.id)
     if (checkId === false) {
@@ -79,9 +73,10 @@ export default class FurtherDrawScreen extends React.Component {
 
     const remainingDrawPool = this.context.remainingDrawPool;
     //console.log(remainingDrawPool)
-    console.log(this.context.alreadyDrawn)
-    console.log(this.context.toDraw)
-    console.log(this.context.currentDraw)
+    //console.log(this.context.alreadyDrawn)
+    //console.log(this.context.toDraw)
+    //console.log(this.context.currentDraw)
+    console.log(this.context)
     
     return (
         <div className="drawscreen">

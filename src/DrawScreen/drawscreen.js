@@ -21,51 +21,29 @@ export default class DrawScreen extends React.Component {
   static contextType = ApiContext;
 
   handleDropDownSelection(e) {
+    e.preventDefault();
     const Groupmembers = this.context.members;
-    const memberSelect = this.context.selectedMember
     const parsifyTarget = JSON.parse(e.target.value);
+    const leftToDraw = this.context.toDraw
     this.context.handleSelectedMember(parsifyTarget);
     this.context.handlePreviouslySelectedMember(parsifyTarget);
     this.context.handleAllDrawMembers(Groupmembers)
-    //console.log(Groupmembers)
-    /*const minusSelfGroup = Groupmembers.filter(function(obj) {
-      if (memberSelect.id !== obj.id) {
-        return obj
-      }
-    })*/
-    const minusSelfGroup = Groupmembers.filter((member) => member.id !== memberSelect.id)
-    console.log(parsifyTarget)
-    console.log(minusSelfGroup)
-    
-
+    const minusSelfGroup = leftToDraw.filter((member) => {
+      return member.id !== parsifyTarget.id
+    })
     const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
-    //this.context.handleSelectedMember(parsifyTarget);
     this.context.handleAllDrawnMembers(thisRandom);
     this.context.handleCurrentDraw(thisRandom);
-   
-    //console.log(this.context.selectedMember.id)
-    
-    console.log(thisRandom)
+    const newDrawGroup = leftToDraw.filter((member) => {
+      return member.id !== thisRandom.id
+    })
+    this.context.handleToDraw(newDrawGroup)
   }
 
   render() { 
-   //const Groupmembers = this.context.members;
-    //const previousMembers = this.context.previouslySelectedMembers;
-   // const remainingMembers = this.context.remainingDrawerPool;
-  //  const remainingMembers = this.context.remainingDrawerPool;
     const remainingMembers = this.context.toDraw
-   // console.log(remainingMembers)
-    console.log(this.context.toDraw, 'left to draw')
-  
-    console.log(this.context.selectedMember, 'current chosen')
-    console.log(this.context.previouslySelectedMember, 'all past chosen')
-    //console.log(this.context)
-    console.log(this.context.selectedMember.id, 'current chosen id')
-    const remainingDrawPool = this.context.remainingDrawPool;
-   // console.log(remainingDrawPool)
-   console.log(this.context.alreadyDrawn, 'already drawn')
-   console.log(this.context.currentDraw, 'current draw')
-
+    
+   console.log(this.context)
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>
