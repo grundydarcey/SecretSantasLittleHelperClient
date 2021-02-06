@@ -22,11 +22,11 @@ export default class FinalDraw extends React.Component {
   render() {
     const memberSelect = this.context.selectedMember;
     const drawer = memberSelect.member_name;
-    const Groupmembers = this.context.members;
-    const pastMembers = this.context.previouslySelectedMember;
-    const pastMemberIds = pastMembers.map(pastMember =>
-      pastMember.id)
-    const minusSelfGroup = Groupmembers.filter(function(obj) {
+    //const Groupmembers = this.context.members;
+    //const pastMembers = this.context.previouslySelectedMember;
+    //const pastMemberIds = pastMembers.map(pastMember =>
+      //pastMember.id)
+    /*const minusSelfGroup = Groupmembers.filter(function(obj) {
       return obj.id !== memberSelect.id
     })
     const minusDrawerGroup = Groupmembers.filter(function(obj) {
@@ -34,7 +34,7 @@ export default class FinalDraw extends React.Component {
       if (checkId === false) {
         return obj.id
       }
-    })
+    })*/
     //const randomMember = minusSelfGroup[Math.floor(Math.random()*minusDrawerGroup.length)]
     
     //const remainingDrawPool = this.context.remainingDrawPool;
