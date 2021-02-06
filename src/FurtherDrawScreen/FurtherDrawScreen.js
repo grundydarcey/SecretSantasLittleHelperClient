@@ -27,26 +27,38 @@ export default class FurtherDrawScreen extends React.Component {
       const parsifyTarget = JSON.parse(e.target.value);
       this.context.handleSelectedMember(parsifyTarget);
       this.context.handlePreviouslySelectedMember(parsifyTarget);
-      const newRandomGroup = alreadyDrawnMembers.filter((member) => member.id !== alreadyDrawnMembers.id)
-      /*const minusSelfGroup = Groupmembers.filter(function(obj) {
-        return obj.id !== parsifyTarget.id
-      })*/
       const minusSelfGroup = leftToDraw.filter((member) => {
         return member.id !== parsifyTarget.id
       })
       const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
       this.context.handleAllDrawnMembers(thisRandom)
       this.context.handleCurrentDraw(thisRandom);
-      console.log(this.context)
-
-      const randomRemoved = alreadyDrawnMembers.filter((member) => {
+      //console.log(this.context)
+      //const randomId = thisRandom.id
+      /*const randomRemoved = alreadyDrawnMembers.filter((member) => {
         return member.id !== thisRandom.id
-      })
+      })*/
+      const alreadyDrawnIds = alreadyDrawnMembers.map(drawnIds => drawnIds.id)
 
-      this.context.handleToDraw(randomRemoved)
+      //const Groupmembers = this.context.members;
+
+
+      //const randomRemove = Groupmembers.filter((member) => (alreadyDrawnMembers.findIndex((members) => (members.id == member.id)) == -1));
+
+     // console.log(randomRemove)
+     // this.context.handleToDraw(randomRemove)
+  }
+
+  componentDidMount() {
+    const Groupmembers = this.context.members;
+    const alreadyDrawnMembers = this.context.alreadyDrawn;
+    const randomRemove = Groupmembers.filter((member) => (alreadyDrawnMembers.findIndex((members) => (members.id == member.id)) == -1));
+    this.context.handleToDraw(randomRemove)
   }
 
   render() {
+    console.log(this.context.alreadyDrawn, 'alreadyDrawn')
+    console.log(this.context.toDraw, 'left to draw')
     //console.log(this.context.alreadyDrawn)
     const Groupmembers = this.context.members;
     const previousMembers = this.context.previouslySelectedMember;
@@ -76,7 +88,7 @@ export default class FurtherDrawScreen extends React.Component {
     //console.log(this.context.alreadyDrawn)
     //console.log(this.context.toDraw)
     //console.log(this.context.currentDraw)
-    console.log(this.context)
+    //console.log(this.context)
     
     return (
         <div className="drawscreen">

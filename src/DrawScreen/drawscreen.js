@@ -33,6 +33,8 @@ export default class DrawScreen extends React.Component {
     })
     const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
     this.context.handleAllDrawnMembers(thisRandom);
+    //console.log(thisRandom);
+    //console.log(this.context.alreadyDrawn)
     this.context.handleCurrentDraw(thisRandom);
     const newDrawGroup = leftToDraw.filter((member) => {
       return member.id !== thisRandom.id
@@ -42,8 +44,10 @@ export default class DrawScreen extends React.Component {
 
   render() { 
     const remainingMembers = this.context.toDraw
-    
-   console.log(this.context)
+    //console.log(this.context)
+    //console.log(this.context.alreadyDrawn)
+    console.log(this.context.alreadyDrawn, 'alreadyDrawn')
+    console.log(this.context.toDraw, 'left to draw')
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>

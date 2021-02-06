@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LandingPage from '../LandingPage/landing-page';
 import { Route } from 'react-router-dom';
-import Header from '../FinalDraw/Header/header';
+import Header from '../Header/header';
 import Rules from '../Rules/rules';
 import DrawScreen from '../DrawScreen/drawscreen';
 import Group from '../Group/group';
@@ -56,12 +56,9 @@ export default class App extends Component {
     }
 
   handleAllDrawnMembers = (drawnMember) => {
+    console.log("handleAllDrawnMembers", this.state.alreadyDrawn, drawnMember);
     this.setState({ alreadyDrawn: [...this.state.alreadyDrawn, drawnMember]})
   }
-
-  /*handleToDraw = (members) => {
-    this.setState({ })
-  }*/
 
   handleToDraw = (members) => {
     this.setState({ toDraw: members })
