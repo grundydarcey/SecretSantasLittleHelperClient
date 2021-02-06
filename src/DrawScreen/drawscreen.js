@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export default class DrawScreen extends React.Component {
   constructor(props) {
     super(props);
+    //binding my drop down handler to this
     this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
   }
 
@@ -23,19 +24,22 @@ export default class DrawScreen extends React.Component {
   handleDropDownSelection(e) {
     e.preventDefault();
     const Groupmembers = this.context.members;
+    //e.target.value came back as a json string, so parsing it is necessary to setting with my context handlers
     const parsifyTarget = JSON.parse(e.target.value);
     const leftToDraw = this.context.toDraw
+    //makes drop down selection the only currently chosen drawer, and adds to array of already chosen drawers to only let each person draw a name once
     this.context.handleSelectedMember(parsifyTarget);
     this.context.handlePreviouslySelectedMember(parsifyTarget);
     this.context.handleAllDrawMembers(Groupmembers)
+    //filters members left to draw and makes sure someone can't draw their own name
     const minusSelfGroup = leftToDraw.filter((member) => {
       return member.id !== parsifyTarget.id
     })
+    //randomizes the members that remain
     const thisRandom = minusSelfGroup[Math.floor(Math.random()*minusSelfGroup.length)];
     this.context.handleAllDrawnMembers(thisRandom);
-    //console.log(thisRandom);
-    //console.log(this.context.alreadyDrawn)
     this.context.handleCurrentDraw(thisRandom);
+    //removes the randomized member from array of members left to draw
     const newDrawGroup = leftToDraw.filter((member) => {
       return member.id !== thisRandom.id
     })
@@ -44,10 +48,6 @@ export default class DrawScreen extends React.Component {
 
   render() { 
     const remainingMembers = this.context.toDraw
-    //console.log(this.context)
-    //console.log(this.context.alreadyDrawn)
-    console.log(this.context.alreadyDrawn, 'alreadyDrawn')
-    console.log(this.context.toDraw, 'left to draw')
     return (
       <div className="drawscreen">
         <h1>Begin Drawing</h1>

@@ -37,15 +37,11 @@ export default class NewMember extends React.Component {
   })
   .then((data) => {
       this.context.addMember(data);
-      console.log(data, 'this is my data input');
-      console.log(this.context.addMember, 'this.context.addmember')
-      console.log(this.context, 'this.context')
     })
     .catch(error => {
       console.error({ error })
     })
     this.props.history.push('/members');
-
   }
 
 
@@ -77,8 +73,7 @@ export default class NewMember extends React.Component {
               <input type="text" name="dollar" id="dollar"></input><br /><br />
               <button type="submit" className="submitmember">Submit New Member</button>
               <button type="button" className="cancelsubmit">Cancel</button><br /><br />
-              <Link to='/members'>View Members Screen</Link>
-              
+              <Link to='/members'>View Members Screen</Link> 
             </fieldset>
           </form>
         </div>

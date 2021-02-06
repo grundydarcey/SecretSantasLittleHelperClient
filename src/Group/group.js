@@ -4,7 +4,6 @@ import ApiContext from '../ApiContext';
 import { Link } from 'react-router-dom';
 
 export default class Group extends React.Component {  
-
   static contextType = ApiContext;
 
   render() {
@@ -29,7 +28,7 @@ export default class Group extends React.Component {
               <h2>Create New Member</h2>
               <Link to='/newmember'>Create New Member</Link>
             </li>
-            </ul>
+          </ul>
           <Link to ='/drawscreen'>Start Drawing Names!</Link><br />
         </div>
       </div>

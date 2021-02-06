@@ -38,7 +38,6 @@ export default class Member extends Component {
         member_name: response.data.member_name,
         dollars: response.data.dollars,
       }, () => {
-        console.log(this.state)
       })
     })
     .catch(err => console.log(err));
