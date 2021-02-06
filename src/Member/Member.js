@@ -74,6 +74,7 @@ export default class Member extends Component {
     }
     this.editMember(newMember);
     e.preventDefault();
+    this.props.history.push('/members')
   }
 
   handleNameInputChange(e) {    
@@ -112,9 +113,10 @@ export default class Member extends Component {
   }
   
   render() { 
-    const member = this.state.member ?  (
+    //const member = this.state.member ?  (
+      const member = this.context.members ? (
       <div className='center'>
-        <h2>You are now editing information for group member {this.state.member.member_name} with a ${this.state.member.dollars} limit.</h2><br />
+        <h2>You are now editing information for group member {this.context.members.member_name} with a ${this.context.members.dollars} limit.</h2><br />
         <div className='editbody'>
         <form onSubmit={this.onSubmit}>
           <fieldset>
