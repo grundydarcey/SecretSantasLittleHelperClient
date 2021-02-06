@@ -2,7 +2,7 @@ import React from 'react';
 import './newmember.css';
 import config from '../config';
 import ApiContext from '../ApiContext';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class NewMember extends React.Component {
   static defaultProps = {
