@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from 'react';
 import './finaldraw.css';
 import { Link } from 'react-router-dom';
@@ -34,9 +35,9 @@ export default class FinalDraw extends React.Component {
         return obj.id
       }
     })
-    const randomMember = minusSelfGroup[Math.floor(Math.random()*minusDrawerGroup.length)]
+    //const randomMember = minusSelfGroup[Math.floor(Math.random()*minusDrawerGroup.length)]
     
-    const remainingDrawPool = this.context.remainingDrawPool;
+    //const remainingDrawPool = this.context.remainingDrawPool;
     //console.log(remainingDrawPool)
     console.log(this.context.alreadyDrawn)
     console.log(this.context.toDraw)

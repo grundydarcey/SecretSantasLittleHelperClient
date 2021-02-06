@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import React from 'react';
 import ApiContext from '../ApiContext';
 import { Link } from 'react-router-dom';
@@ -21,9 +23,9 @@ export default class FurtherDrawScreen extends React.Component {
   static contextType = ApiContext;
 
   handleDropDownSelection(e) {
-      const Groupmembers = this.context.members;
+      //const Groupmembers = this.context.members;
       const leftToDraw = this.context.toDraw;
-      const alreadyDrawnMembers = this.context.alreadyDrawn;
+      //const alreadyDrawnMembers = this.context.alreadyDrawn;
       const parsifyTarget = JSON.parse(e.target.value);
       this.context.handleSelectedMember(parsifyTarget);
       this.context.handlePreviouslySelectedMember(parsifyTarget);
@@ -38,7 +40,7 @@ export default class FurtherDrawScreen extends React.Component {
       /*const randomRemoved = alreadyDrawnMembers.filter((member) => {
         return member.id !== thisRandom.id
       })*/
-      const alreadyDrawnIds = alreadyDrawnMembers.map(drawnIds => drawnIds.id)
+      //const alreadyDrawnIds = alreadyDrawnMembers.map(drawnIds => drawnIds.id)
 
       //const Groupmembers = this.context.members;
 
@@ -83,7 +85,7 @@ export default class FurtherDrawScreen extends React.Component {
       </div>
     )
 
-    const remainingDrawPool = this.context.remainingDrawPool;
+    //const remainingDrawPool = this.context.remainingDrawPool;
     //console.log(remainingDrawPool)
     //console.log(this.context.alreadyDrawn)
     //console.log(this.context.toDraw)
