@@ -6,6 +6,7 @@ export default class Rules extends React.Component {
   render() {
     return (
       <div className="rules">
+        <br />
         <h1>Let's Play!</h1>
         <div className="explanation">
           <p>On the next page you have the chance to tell us about your Secret Santa group!</p>    

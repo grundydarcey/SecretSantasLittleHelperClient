@@ -1,5 +1,15 @@
+/*@font-face {
+  src: url();
+  font-family: 
+}*/
+
 .groupmembers {
   text-align: center;
+  background-color: #123C45;
+}
+
+h1 {
+  color: #C8FDCF;
 }
 
 .begindrawing {
@@ -11,10 +21,13 @@
   padding: 30px;
   margin: 65px;
   border-style: solid;
+  background-color: #CCF9D4;
 }
 
 .members {
   list-style-type: none;
+  display: flex;
+  flex-flow: row;
 }
 
 .individuals {
@@ -23,12 +36,20 @@
   border-style: solid;
   padding: 5px;
   margin: 5px;
+  flex-wrap: wrap;
+  flex-basis: 3;
+  float: left;
 }
 
-@media all and (min-width: 600px) {
-  .groupbody {
-    padding: 70px;
-    margin-right: 200px;
-    margin-left: 200px;
+@media all and (min-width: 600px) and (max-width: 1400px) {
+  .groupmembers {
+    margin-right: 60px;
+    margin-left: 60px;
+  }
+
+  .members {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
   }
 }

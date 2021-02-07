@@ -18,7 +18,8 @@ export default class Group extends React.Component {
   render() {
     const Groupmembers = this.context.members;
     return (    
-      <div className="groupmembers">      
+      <div className="groupmembers"> 
+      <br />     
         <h1>Customize Your Group</h1>
         <div className="groupbody">
           <p>Feel free to use the edit, delete and create buttons to fine-tune your Secret Santa group below.</p>
@@ -28,15 +29,15 @@ export default class Group extends React.Component {
             {Groupmembers.map(member =>
             <li key={member.id} className="individuals">
               Name: {member.member_name}<br />
-              Dollars: {member.dollars}<br />
+              Dollars: {member.dollars}<br /><br />
               <Link to={'/members/' + member.id}>
                 Edit/Remove Member
               </Link>
             </li>
             )}
             <br />
-            <li className="newmember">
-              <h2>Create New Member</h2>
+            <li className="individuals">
+              <p>Need someone new?</p>
               <Link to='/newmember'>Create New Member</Link>
             </li>
           </ul>

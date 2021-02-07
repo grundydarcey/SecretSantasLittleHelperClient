@@ -49,7 +49,7 @@ export default class DrawScreen extends React.Component {
   render() { 
     const remainingMembers = this.context.toDraw
     return (
-      <div className="drawscreen">
+      <div className="drawscreen"><br />
         <h1>Begin Drawing</h1>
         <div className="drawbody">
           <p>Here comes the fun part.</p>

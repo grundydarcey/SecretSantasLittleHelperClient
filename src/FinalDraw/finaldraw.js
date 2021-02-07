@@ -25,7 +25,7 @@ export default class FinalDraw extends React.Component {
     const memberSelect = this.context.selectedMember;
     const drawer = memberSelect.member_name;
     return (
-      <div className="finaldraw">
+      <div className="finaldraw"><br />
         <h1>{drawer}'s Draw</h1>
         <div className="drawbody">
           <p>Here's the moment you've been waiting for... check the nice list again...</p>
