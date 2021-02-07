@@ -72,7 +72,7 @@ export default class FurtherDrawScreen extends React.Component {
     )    
     return (
         <div className="drawscreen">
-          <h1>Begin Drawing</h1>
+          <h1>Drawing</h1>
           <div className="drawbody">
             <p>Let's keep drawing!</p>
             <p>Once you've noted the name, press the button and pass the device to the next person. That button will prevent your secret from getting out!</p><br />
