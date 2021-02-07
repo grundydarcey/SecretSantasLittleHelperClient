@@ -42,11 +42,7 @@ export default class Member extends Component {
     })
     .catch(err => console.log(err));
   }
-
-  componentWillMount() {
-    this.getMemberFields();
-  }
-
+  
   componentDidMount() {
     let id = this.props.match.params.member_id;
     axios.get(`${config.API_ENDPOINT}/members/` + id)
@@ -54,7 +50,8 @@ export default class Member extends Component {
         this.setState({
           member: res.data
         })
-      })
+      });
+    this.getMemberFields();
   }  
 
   editMember(newMember) {

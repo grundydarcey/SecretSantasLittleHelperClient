@@ -23,7 +23,7 @@ export default class Group extends React.Component {
         <div className="groupbody">
           <p>Feel free to use the edit, delete and create buttons to fine-tune your Secret Santa group below.</p>
           <p>If you have made any of these changes, hit refresh to reflect your new group!</p><br />
-          <button type="button" onClick={this.refreshMembers}>Refresh Members</button>
+          <button type="button" className="refresh" onClick={this.refreshMembers}>Refresh Members</button>
           <ul className="members">
             {Groupmembers.map(member =>
             <li key={member.id} className="individuals">
