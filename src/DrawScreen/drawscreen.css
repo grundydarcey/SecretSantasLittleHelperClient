@@ -13,17 +13,20 @@
 }
 
 .drawbody {
-  padding: 30px;
-  margin: 65px;
+  padding: 10px;
+  margin: 20px;
   border-style: solid;
   border-width: 5px;
   background-color: #CCF9D4;
 }
 
-@media all and (min-width: 300px) {
+@media all and (min-width: 10px) and (max-width: 500px) {
   .drawbody {
     padding: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
+   
+  }
+
+  .drawscreen {
+    padding: 10px;
   }
 }
