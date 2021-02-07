@@ -51,15 +51,15 @@ h1 {
 
 @media all and (min-width: 300px)  {
   .groupmembers {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 60px;
+    margin-left: 60px;
   }
 
   .members {
     display: flex;
     flex-flow: column;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: space-evenly;
   }
 
