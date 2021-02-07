@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../config';
 import ApiContext from '../ApiContext';
+import './Member.css'
 
 export default class Member extends Component {
   constructor(props) {
@@ -110,12 +111,10 @@ export default class Member extends Component {
   }
   
   render() { 
-    //const member = this.state.member ?  (
       const member = this.context.members ? (
       <div className='center'>
-        <h2>You are now editing information for group member {this.context.members.member_name} with a ${this.context.members.dollars} limit.</h2><br />
         <div className='editbody'>
-        <form onSubmit={this.onSubmit}>
+        <form className="editordelete" onSubmit={this.onSubmit}>
           <fieldset>
             <p>Alter information about a previously-created member here.</p>
             <label 
@@ -157,7 +156,8 @@ export default class Member extends Component {
     )
     return (
       <div className='member'>
-        <h2>Edit Group Member</h2><br />
+        <br />
+        <h1>Edit Group Member</h1><br />
         {member}
       </div>
     )
