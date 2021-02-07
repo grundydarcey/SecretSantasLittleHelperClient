@@ -6,6 +6,7 @@
 .groupmembers {
   text-align: center;
   background-color: #123C45;
+  padding: 30px;
 }
 
 h1 {
@@ -18,8 +19,8 @@ h1 {
 }
 
 .groupbody {
-  padding: 30px;
-  margin: 65px;
+  /*padding: 30px;
+  margin: 65px;*/
   border-style: solid;
   background-color: #CCF9D4;
 }
@@ -31,6 +32,7 @@ h1 {
 }
 
 .individuals {
+  font-size: 20px;
   border-color: #000;
   border-width: 5px;
   border-style: solid;
@@ -39,6 +41,12 @@ h1 {
   flex-wrap: wrap;
   flex-basis: 3;
   float: left;
+}
+
+.refresh {
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 2px;
 }
 
 @media all and (min-width: 300px)  {
@@ -50,6 +58,8 @@ h1 {
   .members {
     display: flex;
     flex-flow: column;
+    margin-left: 80px;
+    margin-right: 80px;
     justify-content: space-evenly;
   }
 
