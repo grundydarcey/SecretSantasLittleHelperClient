@@ -8,8 +8,21 @@ h1 {
 }
 
 p {
-  font-size: 22px;
+  font-size: 20px;
 }
 form {
-  font-size: 22px;
+  font-size: 20px;
+}
+
+.center {
+  font-size: 30px;
+  text-align: center;
+}
+
+#dollar {
+  font-size: 20px;
+}
+
+#name {
+  font-size: 20px;
 }
