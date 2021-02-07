@@ -1,3 +1,9 @@
+h1 {
+  font-family: Festive;
+  letter-spacing: 20px;
+  font-size: 75px;
+}
+
 .rules {
   text-align: center;
 }
