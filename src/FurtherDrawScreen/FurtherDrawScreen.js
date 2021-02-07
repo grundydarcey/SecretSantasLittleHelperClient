@@ -83,7 +83,7 @@ export default class FurtherDrawScreen extends React.Component {
                   id="groupmembers"
                   onChange={this.handleDropDownSelection}
                 >
-                <option className="pickName">Pick your name from below...</option>
+                <option className="pickName">Pick your name...</option>
                 {minusDrawerGroup.map(member => {
                   return <option 
                     key={member.id}
