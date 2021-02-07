@@ -25,10 +25,10 @@ p {
   font-size: 20px;
 }
 
-@media all and (min-width: 600px) {
-  .explanation {
-    padding: 70px;
-    margin-right: 200px;
-    margin-left: 200px;
+@media all and (max-width: 600px) {
+  h1 {
+    font-family: Festive;
+    letter-spacing: 20px;
+    font-size: 35px;
   }
 }
