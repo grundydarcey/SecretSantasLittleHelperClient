@@ -58,8 +58,8 @@ h1 {
   .members {
     display: flex;
     flex-flow: column;
-    margin-left: 20px;
-    margin-right: 20px;
+   /* margin-left: 20px;
+    margin-right: 20px;*/
     justify-content: space-evenly;
   }
 
