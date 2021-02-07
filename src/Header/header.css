@@ -27,9 +27,3 @@ h1 {
   }
 }
 
-@media all and (max-width: 500px) {
-  .header {
-    height: 230px;
-    background-image: url('/src/Images/snowfont_53.png');
-  }
-}

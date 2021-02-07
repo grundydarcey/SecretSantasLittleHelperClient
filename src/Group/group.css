@@ -41,7 +41,7 @@ h1 {
   float: left;
 }
 
-@media all and (min-width: 600px) and (max-width: 1400px) {
+@media all and (min-width: 300px)  {
   .groupmembers {
     margin-right: 60px;
     margin-left: 60px;
