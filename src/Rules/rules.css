@@ -28,7 +28,7 @@ p {
 @media all and (max-width: 600px) {
   h1 {
     font-family: Festive;
-    letter-spacing: 20px;
+    letter-spacing: 15px;
     font-size: 35px;
   }
 }
