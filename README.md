@@ -2,6 +2,8 @@ Secret Santa's Little Helper
 Live Client Link: https://santaserver.grundydarcey.vercel.app/drawscreen
 
 App Screenshots:
+![alt text](https://github.com/grundydarcey/SecretSantasLittleHelperClient/blob/master/src/Images/start.png?raw=true)
+![alt text](https://github.com/grundydarcey/SecretSantasLittleHelperClient/blob/master/src/Images/edit.png?raw=true)
 ![alt text](https://github.com/grundydarcey/SecretSantasLittleHelperClient/blob/master/src/Images/draw.png?raw=true)
 
 I have created an API and a database to work with this app as well. This is a basic API that allows for information to manipulated by all four CRUD functionalities by the user. My database is a simple one with one table with three attributes: a unique number id, a member name of text, and a number to indicate dollar amount to spend on your Secret Santa drawing. My API allows to call for information on the Heroku link from the /api endpoint. From there, information can be drawn from /members and /members/:memberid. 
