@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 export default class DrawScreen extends React.Component {
   constructor(props) {
     super(props);
+   
     //binding my drop down handler to this
-    this.handleDropDownSelection = this.handleDropDownSelection.bind(this)
+    this.handleDropDownSelection = this.handleDropDownSelection.bind(this);
+  
   }
 
   static defaultProps = {
@@ -21,6 +23,7 @@ export default class DrawScreen extends React.Component {
 
   static contextType = ApiContext;
 
+ 
   handleDropDownSelection(e) {
     e.preventDefault();
     const Groupmembers = this.context.members;
@@ -47,20 +50,23 @@ export default class DrawScreen extends React.Component {
   }
 
   render() { 
-    const remainingMembers = this.context.toDraw
+    const remainingMembers = this.context.toDraw;
+ 
     return (
       <div className="drawscreen"><br />
         <h1>Begin Drawing</h1>
         <div className="drawbody">
           <p>Here comes the fun part.</p>
-          <p>Now we can start drawing names. Select your name below, hit 'See Your Secret Match!' and the next screen will show the name of the person you wil buy a gift for!</p>
-          <p>On the next page, you will see the name of the person YOU will buy a gift for and a button to click.</p>
-          <p>Once you've noted the name, press the button and pass the device to the next person. That button will prevent your secret from getting out!</p><br />
+          <p>Now we can start drawing names. Select your name below, hit 'See Your Secret Match!' and the next screen will show the name of the person you will buy a gift for!</p>
+          <p>After you select your name and head to the next page, you'll see the name of the person you'll be buying a gift for and a button to click.</p>
+          <p>Once you've seen the name, press the Pass button and pass the device to the next person in line. That button will prevent your secret from getting out!</p><br />
           <form>
+  
             <label htmlFor="yourname" id="yourname">Select your name: </label>
             <select 
               name="groupmembers" 
               id="groupmembers"
+        
               onChange={this.handleDropDownSelection}
             >
               <option className="pickName">Pick your name...</option>
@@ -71,9 +77,10 @@ export default class DrawScreen extends React.Component {
                   className="memberOption"
                 >{member.member_name}</option>})}
             </select><br /><br />
+   
           </form>
           <div className="standardDraw">
-        <Link to='/yourdraw'>See your secret match!</Link>
+        <Link to='/yourdraw' >See your secret match!</Link>
       </div>
       </div>
       </div>
