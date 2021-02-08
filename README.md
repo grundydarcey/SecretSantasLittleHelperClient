@@ -6,8 +6,68 @@ App Screenshots:
 ![alt text](https://github.com/grundydarcey/SecretSantasLittleHelperClient/blob/master/src/Images/edit.png?raw=true)
 ![alt text](https://github.com/grundydarcey/SecretSantasLittleHelperClient/blob/master/src/Images/draw.png?raw=true)
 
-I have created an API and a database to work with this app as well. This is a basic API that allows for information to manipulated by all four CRUD functionalities by the user. My database is a simple one with one table with three attributes: a unique number id, a member name of text, and a number to indicate dollar amount to spend on your Secret Santa drawing. My API allows to call for information on the Heroku link from the /api endpoint. From there, information can be drawn from /members and /members/:memberid. 
-Link API/Server Link: https://dry-brook-26909.heroku.com
+Secret Santa's Little Helper API - This API is for use with my Secret Santa client.
+
+Members Endpoints:
+BASE URL: https://dry-brook-26909.herokuapp.com/api
+
+GET/members
+
+Provides array of all member objects ib the database.
+---EXAMPLE REQUEST/RESPONSE---
+GET https://dry-brook-26909.herokuapp.com/api/members
+HTTP STATUS 200 OK
+[
+  {
+    "id": 1,
+    "member_name": "Mom",
+    "dollars": 100
+  },
+  {
+    "id": 2,
+    "member_name": "Dad",
+    "dollars": 100
+  }
+]
+
+POST/members
+Creates a new member object. Requires a request body.
+---KEY-----------VALUE--------
+member_name: string, required minimum 1 length
+dollars: number, positive integer
+---EXAMPLE REQUEST/RESPONSE---
+POST https://dry-brook-26909.herokuapp.com/api/members
+REQ BODY: { "member_name": "Darcey", "dollars": 300000 }
+
+HTTP STATUS 201 Created
+Location: https://dry-brook-26909.herokuapp.com/api/members/3
+{
+  "id": 3,
+  "member_name": "Darcey",
+  "dollars": 300000
+}
+
+PATCH/members/:memberId
+Updates member info with matching id with new member name and/or dollar amount. Requires a request body with at least one valid field.
+-----KEY-------------VALUE-----------
+member_name: string, required minimum 1 length
+dollars: number, positive integer
+---EXAMPLE REQUEST/RESPONSE---
+PATCH https://dry-brook-26909.herokuapp.com/api/members/3
+REQ BODY: { "dollars": 400000 }
+
+HTTP STATUS 200 OK
+{
+  "dollars": 400000
+} 
+
+DELETE/members/:memberId
+Deletes member with matching id.
+---EXAMPLE REQUEST/RESPONSE---
+DELETE https://dry-brook-26909.herokuapp.com/api/members/3
+
+HTTP STATUS 200 OK
+{} (empty)
 
 This project is using fairly simple React functional and class components but I am proud of going into a project and not only generating a randomizer for group members, but also making it completely functional for the purposes of a Secret Santa drawing. Even in real life Secret Santa drawings, you run into the problem of drawing your own name and having to redraw again with your name removed and put it back in for the next person's turn. I'm proud of not only taking Secret Santa onto a device, but solving a problem that the real-life process couldn't solve.
 
