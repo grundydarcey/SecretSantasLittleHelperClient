@@ -54,4 +54,9 @@ p {
     margin-left: 50px;
     background-color: #CCF9D4;
   }
+
+  a {
+    background-size: 20%;
+    padding: 10px;
+  }
 }
