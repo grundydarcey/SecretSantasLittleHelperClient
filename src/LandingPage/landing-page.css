@@ -64,9 +64,9 @@ p {
 
   a {
     padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-    background-size: 40%;
+    padding-right: 40px;
+    padding-top: 40px;
+    background-size: 30%;
     font-size: 25px;
   }
 }
