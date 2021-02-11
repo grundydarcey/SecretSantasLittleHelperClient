@@ -6,14 +6,29 @@ import { Link } from 'react-router-dom';
 export default class Group extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      reload: false
+    }
     this.refreshMembers = this.refreshMembers.bind(this);
   }
 
   static contextType = ApiContext;
 
   refreshMembers = () => {
+    
     window.location.reload(false)
+    
   }
+
+  componentDidMount() {
+    console.log(this.state.reload)
+    if (this.state.reload === false) {
+      this.setState({ reload: true })
+    }
+    console.log(this.state.reload)
+  }
+
+
 
   render() {
     const Groupmembers = this.context.members;
