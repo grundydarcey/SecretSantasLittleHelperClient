@@ -57,6 +57,11 @@ p {
 }
 
 @media all and (max-width: 500px) {
+  .textbox {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
   a {
     padding-left: 30px;
     padding-right: 30px;
