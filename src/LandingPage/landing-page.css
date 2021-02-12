@@ -7,6 +7,14 @@ p {
   text-align: center;
   line-height: 55px;
   font-size: 20px;
+  font-family: Corbel;
+}
+
+.text {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .landingPage {
@@ -19,6 +27,8 @@ p {
   text-align: center;
   border-style: solid;
   border-width: 5px;
+  border-radius: 25px;
+  border-color: #867b77;
   background-color: #CCF9D4;
 }
 
@@ -31,7 +41,6 @@ p {
 a {
   color: #123C45;
   font-size: 25px;
-  text-decoration: none;
   border-style: solid;
   border-color: #CCF9D4;
   padding: 35px;
@@ -40,20 +49,6 @@ a {
   background-image: url('/src/Images/santa.png');
   background-size: 30%;
   background-repeat: no-repeat;
-}
-
-p {
-  font-family: Corbel;
-}
-
-
-@media all and (min-width: 600px) {
-  .textbox {
-    padding: 35px;
-    margin-right: 40px;
-    margin-left: 40px;
-    background-color: #CCF9D4;
-  }
 }
 
 @media all and (max-width: 500px) {

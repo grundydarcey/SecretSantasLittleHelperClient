@@ -1,3 +1,5 @@
+
+
 h1 {
   font-family: Festive;
   letter-spacing: 20px;
@@ -8,11 +10,21 @@ h1 {
   text-align: center;
 }
 
+a Link {
+
+ 
+  background-size: 15%;
+}
+
+
+
 .explanation {
   border-style: solid;
   padding: 30px;
   margin: 65px;
   background-color: #CCF9D4;
+  border-color: #867b77;
+  border-radius: 25px;
 }
 
 p {
