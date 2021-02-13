@@ -10,10 +10,13 @@ h1 {
   text-align: center;
 }
 
-a Link {
-
- 
-  background-size: 15%;
+.rules .explanation a {
+  background-size: 23%;
+  border-style: solid;
+  border-color: #CCF9D4;
+  padding: 45px;
+  padding-left: 120px;
+  padding-right: 120px; 
 }
 
 
