@@ -50,9 +50,9 @@ p {
   .rules .explanation a {
     padding-left: 95px;
     padding-right: 95px;
-    
     background-size: 60%;
     font-size: 18px;
     display: block;
+    text-align: center;
   }
 }
