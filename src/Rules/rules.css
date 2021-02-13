@@ -46,4 +46,12 @@ p {
     letter-spacing: 15px;
     font-size: 35px;
   }
+
+  .rules .explanation a {
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 25px;
+    background-size: 30%;
+    font-size: 18px;
+  }
 }
