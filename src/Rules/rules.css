@@ -51,7 +51,8 @@ p {
     padding-left: 55px;
     padding-right: 55px;
     padding-top: 25px;
-    background-size: 30%;
+    background-size: 25%;
     font-size: 18px;
+    text-align: center;
   }
 }
