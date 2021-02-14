@@ -85,6 +85,7 @@ h1 {
     background-size: 15%;
     border-color: none;
     text-align: center;
+    background-position: left;
   }
 
   .groupbody a {
