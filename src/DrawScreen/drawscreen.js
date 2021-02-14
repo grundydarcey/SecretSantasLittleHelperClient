@@ -78,7 +78,7 @@ export default class DrawScreen extends React.Component {
                 >{member.member_name}</option>})}
             </select><br /><br />
    
-          </form>
+          </form><br /><br /><br />
           <div className="standardDraw">
         <Link to='/yourdraw' >See your secret match!</Link><br /><br />
       </div>
