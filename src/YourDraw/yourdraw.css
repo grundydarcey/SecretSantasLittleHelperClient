@@ -27,5 +27,7 @@ h3 {
 
   .drawbody a {
     padding: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
