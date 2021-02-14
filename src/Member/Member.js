@@ -138,7 +138,7 @@ export default class Member extends Component {
               id="dollar" 
               value={this.state.dollars} 
               onChange={this.handleDollarInputChange}
-            ></input><br />
+            ></input><br /><br />
             <button type="submit" className="editsubmit">Save Changes</button>
             <button 
               type="button" 
