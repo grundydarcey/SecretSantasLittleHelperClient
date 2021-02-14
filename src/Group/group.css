@@ -95,4 +95,7 @@ h1 {
     background-position: left bottom;
     background-size: 20%;
   }
+  h1 {
+    letter-spacing: 3px;
+  }
 }
