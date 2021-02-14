@@ -7,13 +7,15 @@ h3 {
   padding: 15px;
 }
 
-.drawbody {
+.drawing .drawbody {
   text-align: center;
   padding: 30px;
   margin: 65px;
   border-style: solid;
   border-width: 5px;
-  border-color: #000;
+  border-color: #867b77;
+  border-radius: 25px;
+  background-color: #ccf9d4;
 }
 
 @media all and (min-width: 600px) {

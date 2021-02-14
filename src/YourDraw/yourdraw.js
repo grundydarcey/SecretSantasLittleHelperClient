@@ -28,8 +28,8 @@ export default class YourDraw extends React.Component {
             <h2>You've drawn...</h2>
             {this.context.currentDraw.member_name}
           </div>
-          <p>Now before you pass the device to the next person in line, hit the 'Ready to Pass' button so they don't see who you're buying a gift for!</p><br />
-          {ifDrawingBegan}
+          <p>Now before you pass the device to the next person in line, hit the 'Ready to Pass' button so they don't see who you're buying a gift for!</p><br /><br />
+          {ifDrawingBegan}<br /><br />
         </div>
       </div>
     )
