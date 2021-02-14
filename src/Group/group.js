@@ -39,15 +39,16 @@ export default class Group extends React.Component {
         <div className="groupbody">
           <p>Feel free to use the edit, delete and create buttons to fine-tune your Secret Santa group below.</p>
           <p>If you have made any of these changes, hit refresh to reflect your new group!</p><br />
-          <button type="button" className="refresh" onClick={this.refreshMembers}>Refresh Members</button>
+          <button type="button" className="refresh" onClick={this.refreshMembers}>Refresh Members</button><br />
           <ul className="members">
             {Groupmembers.map(member =>
             <li key={member.id} className="individuals">
+              <br />
               Name: {member.member_name}<br />
               Dollars: {member.dollars}<br /><br />
               <Link to={'/members/' + member.id}>
                 Edit/Remove Member
-              </Link>
+              </Link><br /><br />
             </li>
             )}
             <br />
@@ -55,8 +56,8 @@ export default class Group extends React.Component {
               <p>Need someone new?</p>
               <Link to='/newmember'>Create New Member</Link>
             </li>
-          </ul>
-          <Link to ='/drawscreen'>Start Drawing Names!</Link><br />
+          </ul><br /><br />
+          <Link to ='/drawscreen'>Start Drawing Names!</Link><br /><br />
         </div>
       </div>
     )

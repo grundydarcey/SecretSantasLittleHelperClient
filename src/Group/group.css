@@ -1,8 +1,3 @@
-/*@font-face {
-  src: url();
-  font-family: 
-}*/
-
 .groupmembers {
   text-align: center;
   background-color: #123C45;
@@ -10,8 +5,11 @@
 }
 
 .groupmembers .groupbody .members a {
-  border-style: solid;
-  border-color: #000;
+  padding: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 10px;
+  background-size: 15%;
 }
 
 h1 {
@@ -24,28 +22,29 @@ h1 {
 }
 
 .groupbody {
-  /*padding: 30px;
-  margin: 65px;*/
   border-style: solid;
   background-color: #CCF9D4;
+  border-color: #867b77;
+  border-radius: 25px;
 }
 
 .members {
   list-style-type: none;
   display: flex;
   flex-flow: row;
+  justify-content: center;
+  border-color: #867b77;
+  padding: 0;
 }
 
 .individuals {
   font-size: 20px;
-  border-color: #000;
+  border-color: #867b77;
+  border-radius: 25px;
   border-width: 5px;
   border-style: solid;
   padding: 5px;
   margin: 5px;
-  flex-wrap: wrap;
-  flex-basis: 3;
-  float: left;
 }
 
 .refresh {
@@ -63,13 +62,8 @@ h1 {
   .members {
     display: flex;
     flex-flow: column;
-   /* margin-left: 20px;
-    margin-right: 20px;*/
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: space-evenly;
-  }
-
-  .groupbody {
-    padding: 10px;
-    margin: 10px;
   }
 }
