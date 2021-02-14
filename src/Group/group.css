@@ -81,11 +81,11 @@ h1 {
     padding-left: 35px;
     padding-right: 35px;
     border-style: none;
-    padding-top: 15px;
+    padding-top: 20px;
     background-size: 15%;
     border-color: none;
     text-align: center;
-    background-position: left;
+    background-position: left bottom;
   }
 
   .groupbody a {
