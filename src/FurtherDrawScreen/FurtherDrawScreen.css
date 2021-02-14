@@ -25,9 +25,7 @@
   
   @media all and (max-width: 600px) {
     .drawbody a {
-      padding: 45px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 65px;
       background-position: left;
     }
   }
