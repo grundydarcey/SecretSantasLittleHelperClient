@@ -93,7 +93,7 @@ export default class FurtherDrawScreen extends React.Component {
                 {member.member_name}</option>})}
                 </select><br /><br />
               </form><br /><br />
-            {isFinalDrawing}
+            {isFinalDrawing}<br /><br />
           </div>
         </div>
     )

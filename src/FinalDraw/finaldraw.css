@@ -4,6 +4,7 @@
   border-style: solid;
   border-width: 5px;
   border-color: #000;
+  text-align: center;
 }
 
 .home {
@@ -11,10 +12,11 @@
   font-size: 20px;
 }
 
-@media all and (min-width: 600px) {
-  .drawbody {
-    padding: 30px;
-    margin-right: 200px;
-    margin-left: 200px;
-  }
+h2 {
+  text-align: center;
+}
+
+
+@media all and (max-width: 600px) {
+  
 }
