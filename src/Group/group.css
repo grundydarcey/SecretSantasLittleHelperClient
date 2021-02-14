@@ -26,6 +26,8 @@ h1 {
   background-color: #CCF9D4;
   border-color: #867b77;
   border-radius: 25px;
+  padding: 10px;
+  margin: 15px;
 }
 
 .members {
@@ -79,6 +81,7 @@ h1 {
     padding-left: 50px;
     padding-right: 50px;
     border-radius: 10px;
+    padding-top: 30px;
     background-size: 15%;
     border-color: none;
     text-align: center;
