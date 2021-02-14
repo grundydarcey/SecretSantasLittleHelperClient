@@ -73,6 +73,14 @@ h1 {
   }
 }
 
-/*@media all and (min-width: 600px) {
-
-}*/
+@media all and (min-width: 600px) {
+  .groupmembers .groupbody .members a {
+    padding: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    background-size: 15%;
+    border-color: none;
+    text-align: center;
+  }
+}
