@@ -22,6 +22,14 @@
     border-radius: 25px;
     border-color: #867b77;
   }
+
+  .drawbody .finalDraw a {
+    padding: 70px;
+    padding-left: 90px;
+    padding-right: 90px;
+    background-position: left;
+    background-size: 20%;
+  }
   
   @media all and (max-width: 600px) {
     .drawbody a {
