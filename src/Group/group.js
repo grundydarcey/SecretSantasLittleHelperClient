@@ -57,7 +57,9 @@ export default class Group extends React.Component {
               <Link to='/newmember'>Create New Member</Link><br /><br />
             </li>
           </ul><br /><br />
-          <Link to ='/drawscreen'>Start Drawing Names!</Link><br /><br /><br />
+          <div className="draw">
+            <Link to ='/drawscreen'>Start Drawing Names!</Link><br /><br /><br />
+          </div>
         </div>
       </div>
     )
