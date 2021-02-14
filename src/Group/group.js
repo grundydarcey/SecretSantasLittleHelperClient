@@ -54,10 +54,10 @@ export default class Group extends React.Component {
             <br />
             <li className="individuals">
               <p>Need someone new?</p>
-              <Link to='/newmember'>Create New Member</Link>
+              <Link to='/newmember'>Create New Member</Link><br /><br />
             </li>
           </ul><br /><br />
-          <Link to ='/drawscreen'>Start Drawing Names!</Link><br /><br />
+          <Link to ='/drawscreen'>Start Drawing Names!</Link><br /><br /><br />
         </div>
       </div>
     )
