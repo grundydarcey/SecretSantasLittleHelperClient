@@ -89,10 +89,10 @@ h1 {
   }
 
   .groupbody a {
-    padding-left: 110px;
-    padding-right: 110px;
+    padding-left: 130px;
+    padding-right: 130px;
     padding: 10px;
     background-position: left bottom;
-    background-size: 10%;
+    background-size: 20%;
   }
 }
