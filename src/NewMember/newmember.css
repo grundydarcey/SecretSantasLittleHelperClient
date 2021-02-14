@@ -10,9 +10,31 @@ fieldset {
 .submitmember {
   padding: 15px;
   font-size: 20px;
+  background-color: #ccf9d4;
+  border-radius: 15px;
 }
 
 .cancelsubmit {
   padding: 15px;
   font-size: 20px;
+  background-color: #ccf9d4;
+  border-radius: 15px;
+}
+
+
+@media all and (max-width: 500px) {
+  .submitmember {
+    padding: 15px;
+    font-size: 20px;
+    background-color: #ccf9d4;
+    border-radius: 15px;
+  }
+  
+  .cancelsubmit {
+    padding: 15px;
+    font-size: 20px;
+    background-color: #ccf9d4;
+    border-radius: 15px;
+  }
+  
 }
