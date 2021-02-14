@@ -12,7 +12,8 @@ p {
 
 .landingPage {
   background-color: #123C45;
-
+ /* background-image: url('/src/Images/secondbackground.png');
+  background-position: bottom;*/
 }
 
 .textbox {

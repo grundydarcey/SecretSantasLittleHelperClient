@@ -8,7 +8,6 @@ h1 {
   height: 415px;
   background-image: 
   linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(18, 60,  69, 1)), url('/src/Images/snowfont_53.png');
-  /*background-position: center;*/
   background-size: 100%;
   background-repeat: space;
   background-color: #123C45;
