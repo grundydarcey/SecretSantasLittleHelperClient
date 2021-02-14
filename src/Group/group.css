@@ -75,7 +75,7 @@ h1 {
   }
 }
 
-@media all and (min-width: 600px) {
+@media all and (max-width: 600px) {
   .groupmembers .groupbody .members a {
     padding: 5px;
     padding-left: 50px;
