@@ -18,10 +18,14 @@ h3 {
   background-color: #ccf9d4;
 }
 
-@media all and (min-width: 600px) {
+@media all and (max-width: 600px) {
   fieldset {
     padding: 70px;
     margin-right: 200px;
     margin-left: 200px;
+  }
+
+  .drawbody a {
+    padding: 30px;
   }
 }
