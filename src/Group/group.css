@@ -91,7 +91,7 @@ h1 {
   .groupbody a {
     padding-left: 130px;
     padding-right: 130px;
-    padding: 10px;
+    padding: 0px;
     background-position: left bottom;
     background-size: 20%;
   }
