@@ -9,6 +9,11 @@
   padding: 30px;
 }
 
+.groupmembers .groupbody .members a {
+  border-style: solid;
+  border-color: #000;
+}
+
 h1 {
   color: #C8FDCF;
 }
