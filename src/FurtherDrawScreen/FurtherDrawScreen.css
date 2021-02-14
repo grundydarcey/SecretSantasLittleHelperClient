@@ -23,10 +23,8 @@
     border-color: #867b77;
   }
   
-  @media all and (min-width: 600px) {
-    .drawbody {
-      padding: 70px;
-      margin-right: 200px;
-      margin-left: 200px;
+  @media all and (max-width: 600px) {
+    .drawbody a {
+      padding: 20px;
     }
   }
