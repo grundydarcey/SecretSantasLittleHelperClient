@@ -60,4 +60,12 @@ form {
     background-color: #ccf9d4;
     border-radius: 15px;
   }
+
+  fieldset {
+    background-color: #CCF9D4;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #867b77;
+    padding: 0;
+  }
 }
