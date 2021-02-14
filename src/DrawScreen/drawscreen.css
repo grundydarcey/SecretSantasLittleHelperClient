@@ -34,4 +34,10 @@
   .drawscreen {
     padding: 10px;
   }
+
+  .drawscreen .drawbody .standardDraw a {
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
