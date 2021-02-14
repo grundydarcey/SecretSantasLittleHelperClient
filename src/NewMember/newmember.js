@@ -73,7 +73,7 @@ export default class NewMember extends React.Component {
               <input type="text" name="dollar" id="dollar"></input><br /><br />
               <button type="submit" className="submitmember">Submit New Member</button>
               <button type="button" className="cancelsubmit">Cancel</button><br /><br /><br /><br />
-              <Link to='/members'>View Members Screen</Link> 
+              <Link to='/members'>View Members Screen</Link><br /><br />
             </fieldset>
           </form>
         </div>

@@ -36,5 +36,10 @@ fieldset {
     background-color: #ccf9d4;
     border-radius: 15px;
   }
-  
+
+  fieldset a {
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
