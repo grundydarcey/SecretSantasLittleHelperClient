@@ -42,5 +42,6 @@ fieldset {
     padding-left: 80px;
     padding-right: 80px;
     background-size: 20%;
+    border-style: none;
   }
 }
