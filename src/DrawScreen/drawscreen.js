@@ -55,7 +55,7 @@ export default class DrawScreen extends React.Component {
     return (
       <div className="drawscreen"><br />
         <h1>Begin Drawing</h1>
-        <div className="drawbody">
+        <div className="drawBody">
           <p>Here comes the fun part.</p>
           <p>Now we can start drawing names. Select your name below, hit 'See Your Secret Match!' and the next screen will show the name of the person you will buy a gift for!</p>
           <p>After you select your name and head to the next page, you'll see the name of the person you'll be buying a gift for and a button to click.</p>
@@ -80,7 +80,7 @@ export default class DrawScreen extends React.Component {
    
           </form>
           <div className="standardDraw">
-        <Link to='/yourdraw' >See your secret match!</Link>
+        <Link to='/yourdraw' >See your secret match!</Link><br /><br />
       </div>
       </div>
       </div>
