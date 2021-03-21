@@ -32,6 +32,7 @@ export default class Group extends React.Component {
 
   render() {
     const Groupmembers = this.context.members;
+    console.log(Groupmembers);
     return (    
       <div className="groupmembers"> 
       <br />     

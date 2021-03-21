@@ -60,6 +60,7 @@ export default class NewMember extends React.Component {
   }
 
   render() {
+    console.log(this.context.members);
     return (
       <div className="create">
         <h1>Create New Member</h1>

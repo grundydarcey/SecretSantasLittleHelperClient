@@ -39,8 +39,8 @@ export default class App extends Component {
           'content-type': 'application/json'
         }
       })
-    ])        
-      .then(([membersRes]) => {
+    ])             
+    .then(([membersRes]) => {
         if (!membersRes.ok) return membersRes.json().then((e) => Promise.reject(e));
         return Promise.all([membersRes.json()]);
       })
@@ -51,6 +51,7 @@ export default class App extends Component {
       .catch((error) => {
         console.error({ error });
       }) 
+ 
     }
 
   //adds each drawn name to an empty array so that no two names are drawn twice
